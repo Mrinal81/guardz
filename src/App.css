@@ -1,38 +1,278 @@
-.App {
-  text-align: center;
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+    
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main{
+    display: grid;
+    grid-template-columns: .6fr 9fr;
+    background-color: #f2f4f8;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.sidenav{
+    height: 100vh;
+    /* position: fixed; */
+    border-right:.2px solid lightgrey;
+    display: grid;
+    grid-template-rows: .8fr 7fr 2fr;
+}
+.img{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.sidenav a{
+    text-decoration: none;
+}
+.logos{
+    width: 45px;
+    height: 45px;
+}
+.links{
+    display: flex;
+    justify-content: center;
+}
+.links li{
+    list-style: none;
+    margin: 30px 0px;
+    width: 100%;
+}
+.links ul li img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.bottomnav{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+.bottomnav img{
+    width: 30px;
+    height: 30px;
+    margin: 20px 0px;
+}
+.active{
+    border-color: blue;
+}
+.maincontent{
+    display: grid;
+    grid-template-columns: 5px 5fr 4fr 5px;
+    padding: 0px 40px;
+    padding-top: 50px;
+    gap: 30px;
+}
+.card{
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+.list-container {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    background-color: white;
+    border-radius: 20px;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .list-container li{
+    margin: 20px;
   }
-  to {
-    transform: rotate(360deg);
-  }
+.card ul{ 
+    margin: 0;
+    padding: 0;
+}
+.list{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.list-img{
+    background-color: #edf2f7;
+    border-radius: 10px;
+}
+.list img{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+.status{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    gap: 20px;
+    
+}
+.status-content{
+    display: flex;
+    gap: 10px;
+    background-color: white;
+    border-radius: 20px;
+    align-items: center;
+    padding:10px 20px;
+}
+.statusbar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 20px;
+}
+.statusbar span{
+    background: linear-gradient(90deg, rgba(239,81,125,1) 0%, rgba(254,197,103,1) 38%, rgba(81,242,145,1) 100%);
+    padding: 8px;
+    width: 100%;
+    border-radius: 30px;
+    border:8px solid lightgray;
+}
+.insurance{
+    text-align: center;
+    font-size: 16px;
+    
+}
+.insurance-content{
+    display: grid;
+    gap: 5px;
+}
+.insurance-content button{
+    color: blue;
+    background-color: white;
+    border:2px solid blue;
+    padding: 10px;
+    font-weight: bold;
+}
+.bottommaincontent{
+        display: grid;
+        grid-template-columns: 5px 5fr 4fr 5px;
+        padding:40px;
+        gap: 30px;
+}
+.bottomcard{
+
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+.bottom-card{
+    display: grid;
+    background-color: white;
+    border-radius: 20px;
+}
+.bottomstatus{
+    grid-column-start: 3;
+    grid-column-end: 4;    
+}
+.bottom-content{
+    background-color: white;
+    border-radius: 20px;
+    padding:10px 20px;
+}
+.details p{
+    font-size: 18px;
+    font-weight: 600;
+}
+.bottomstatusbar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0px;
+    margin: 40px 0px;
+}
+.bottomstatusbar span{
+    background-color: #f6ad55;
+    padding: 8px;
+    width: 100%;
+    border-radius: 30px;
+}
+.values{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.bottom-values{
+    border-radius: 5px;
+}
+.datas{
+    margin: 0px 10px;
+}
+
+.insights{
+    grid-column-start: 3;
+    grid-column-end: 4;  
+    border-radius: 20px;
+    background-color: white;  
+    margin: 20px 0px;
+    padding: 4px;
+}
+.insights-content{
+    background-color: #f7fafc;
+    border-radius: 20px;
+    padding:10px 20px;
+}
+.insights-main-contents{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.insights-title p{
+    font-size: 18px;
+    font-weight: 600;
+}
+.insights-content button{
+    background-color: white;
+    border:.5px solid gray;
+    padding: 5px 12px;
+    margin: 0px 5px;
+    border-radius: 10px;
+}
+.scroll-content{
+    margin: 30px 0px;
+    overflow-y: scroll;
+    height: 250px;
+}
+
+.topcard{
+    display: flex;
+    background-color: #feebcb;
+    padding: 20px;
+    border: 2px solid #f6ad55;
+    border-radius: 20px;
+    justify-content: space-between;
+    gap: 10px;
+}
+.topcard:hover{
+    border:2px solid #dd6b20;
+}
+.topcard .icon img{
+    width: 30px;
+    height: 30px;
+}
+.scrollcardcontent h4{
+    margin-bottom: 10px;
+}
+.scrollcardcontent p{
+    font-size: 14px;
+}
+.btns{
+    display: flex;
+    align-items: center;
+}
+.btns button{
+    color: blue;
+    border:.5px solid blue;
+}
+.belowcard{
+    margin: 20px 0px;
+}
+.belowicon img{
+    width: 30px;
+    height: 30px;
+}
+.below-cards{
+    display: flex;
+    padding: 20px;
+    gap: 10px;
+    justify-content: space-between;
+}
+.below-cards h4{
+    margin-bottom: 10px;
 }
