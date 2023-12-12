@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import logo from "../assets/guardz-logos.png";
 import user from "../assets/user.png";
 import monitor from "../assets/monitor.png";
@@ -23,26 +25,40 @@ const SidenavBar = () => {
       </div>
       <div className="links">
         <ul>
-          <li className={activeLink === 'home' ? 'active' : ''}>
-            <img src={home} alt="home icon" onClick={() => handleLinkClick('home')} />
+        <li className={activeLink === 'home' ? 'active' : ''}>
+            <Link to="/home" onClick={() => handleLinkClick('home')}>
+              <img src={home} alt="home icon" />
+            </Link>
           </li>
           <li className={activeLink === 'protection' ? 'active' : ''}>
-            <img src={shield} alt="protection" onClick={() => handleLinkClick('protection')} />
+            <Link to="/protection" onClick={() => handleLinkClick('protection')}>
+              <img src={shield} alt="protection" />
+            </Link>
           </li>
-          <li className={activeLink === 'stop' ? 'active' : ''}>
-            <img src={shield} alt="stop" onClick={() => handleLinkClick('stop')} />
+          <li className={activeLink === 'issues' ? 'active' : ''}>
+            <Link to="/Issues" onClick={()=> handleLinkClick('issues')}>
+            <img src={shield} alt="Issues"/>
+            </Link>
           </li>
           <li className={activeLink === 'user' ? 'active' : ''}>
-            <img src={user} alt="user" onClick={() => handleLinkClick('user')} />
+            <Link to="/user" onClick={()=> handleLinkClick('user')}>
+            <img src={user} alt="user"/>
+            </Link>
           </li>
           <li className={activeLink === 'monitor' ? 'active' : ''}>
-            <img src={monitor} alt="monitor" onClick={() => handleLinkClick('monitor')} />
+            <Link to="/Monitor" onClick={()=> handleLinkClick('monitor')}>
+            <img src={monitor} alt="monitor"/>
+            </Link>
           </li>
           <li className={activeLink === 'globe' ? 'active' : ''}>
-            <img src={globe} alt="globe" onClick={() => handleLinkClick('globe')} />
+            <Link to="/Globe" onClick={()=> handleLinkClick('globe')}>
+            <img src={globe} alt="globe"/>
+            </Link>
           </li>
           <li className={activeLink === 'education' ? 'active' : ''}>
-            <img src={user} alt="education" onClick={() => handleLinkClick('education')} />
+            <Link to="/Education" onClick={()=> handleLinkClick('education')}>
+            <img src={user} alt="education"/>
+            </Link>
           </li>
         </ul>
       </div>
