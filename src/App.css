@@ -166,15 +166,60 @@ body{
         gap: 30px;
 }
 .bottomcard{
-
     grid-column-start: 2;
     grid-column-end: 3;
+    background-color: white;
+    border-radius: 20px;
+    height: 97%;
 }
 .bottom-card{
     display: grid;
-    background-color: white;
-    border-radius: 20px;
+    padding: 20px;
 }
+.issues-btns-links{
+    font-size: 12px;
+    margin-top: 15px;
+    display: flex;
+    gap: 50px;
+}
+.checklist{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.one{
+    width: 10px;
+    height: 10px;
+    border: 1px dashed gray;
+    border-radius: 3px;
+}
+.two{
+    width: 10px;
+    height: 10px;
+    border: 1px solid #654fe8;
+    border-radius: 3px;
+    background-color: #cec9f8;
+    box-shadow: .2px .2px 1px 1.2px white inset;
+}
+.three{
+    width: 10px;
+    height: 10px;
+    border: 1px solid #654fe8;
+    border-radius: 5px;
+    background-color: #a79af2;
+    box-shadow: .2px .2px 1px .5px white inset;
+}
+.radar-content{
+    height: 100%;
+    padding-top: 150px;
+}
+.radar-system{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .bottomstatus{
     grid-column-start: 3;
     grid-column-end: 4;    
@@ -588,7 +633,7 @@ body{
 
 .monitorPage{
     display: grid;
-    grid-template-columns: 10px .08fr 1fr 10px;
+    grid-template-columns: 10px .06fr 1fr 10px;
     grid-template-rows: 10px .20fr 1fr 1.13fr 10px;
 }
 .monitorHeader{
@@ -596,9 +641,7 @@ body{
     grid-row-start: 3;
     font-size: 14px;
 }
-.monitorCard{
-    background-color: white;
-}
+
 .monitorHeader button{
     padding: 5px 10px;
     margin: 10px 0px;
@@ -622,14 +665,17 @@ body{
 .monitorButtons h2{
     margin-bottom: 20px;
     font-size: 18px;
+    color: #4a5568;
 }
 .monitorCard table{
-    border: .5px solid gray;
-    border-radius: 10px;
-    padding: 10px;
+    background-color: white;
+    border: .1px solid lightgray;
+    border-radius: 8px;
+    padding: 8px;
     width: 100%;
     font-size: 14px;
     table-layout: auto;
+    color: #718096;
 }
 .monitorCard th,
 .monitorCard td {
@@ -661,28 +707,50 @@ body{
 
 .globePage{
     display: grid;
-    grid-template-columns: 10px .08fr 1fr 10px;
-    grid-template-rows: 10px .30fr 1fr  10px;
+    grid-template-columns: 10px .06fr 1fr 10px;
+    grid-template-rows: 10px .20fr 1fr  10px;
 }
 .globeHeader{
     grid-column-start: 3;
     grid-row-start: 3;
     font-size: 14px;
 }
-.globeCard{
+/* .globeCard{
     background-color: white;
-}
+} */
 .globeworkbtns button{
-    padding: 5px 10px;
-    margin: 10px 0px;
-    border: .5px solid gray;
-    border-radius: 10px;
+    padding: 2px 10px;
+    border-radius: 8px;
+    border: .1px solid lightgray;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #718096 !important;
 }
 .globeworkbtns{
     display: flex;
-    gap: 15px;
+    gap: 10px;
+    margin: 15px 0px;
 }
-
+.globeworkbtns button:hover{
+    border: 1px solid gray;
+    color: #654FE8 !important;
+}
+.globeworkbtns button:hover .search-img{
+  fill: #654FE8;
+}
+.globeworkbtns button .search-img{
+  width: 100%;
+  height: 20px;
+}
+.filter{
+  border: .1px dashed lightgray !important;
+}
+.filter:hover{
+  border: .1px solid lightgray !important;
+  box-shadow: 2px 2px 5px lightgray !important;
+}
 .globeBtn{
     display: flex;
     gap: 15px;
@@ -690,29 +758,40 @@ body{
 .globeButtons h2{
     margin-bottom: 20px;
     font-size: 18px;
+    color: #4a5568;
 }
 .globeCard table{
-    border: .5px solid gray;
-    border-radius: 10px;
+    border: .1px solid lightgray;
+    border-radius: 8px;
+    background-color: white;
     padding: 10px;
     width: 100%;
     font-size: 14px;
     table-layout: auto;
     position: relative;
+    border-collapse: separate;
+    border-spacing: 0;
 }
+.globeCard th{
+    color: #718096;
+}
+
 .globeCard th,
 .globeCard td {
-  text-align: start;
-  padding: 10px; 
-  width: auto;
-  
+    text-align: start;
+    padding: 10px; 
+    width: auto;
+    
 }
 
 
 .globeCard th{
     text-align: start;
     margin: 20px 20px;
-    
+    border-bottom: .1px solid lightgray;
+}
+.globeCard thead tr{
+    border-bottom: .1px solid lightgray ;
 }
 .globeCard tr{
     text-align: start;
@@ -726,13 +805,6 @@ body{
     height: 20px;
 }
 
-/* .internethidden{
-    padding: 0px 5px;
-    background:none;
-    border: .5px solid #654fe8;
-    color: #654fe8;
-    display: none;
-} */
 .hoverbtn{
   position: absolute;
   top: 50%;
@@ -743,3 +815,151 @@ body{
 .globeCard tbody tr:hover .hoverbtn {
     display: inline-block;
   }
+  .education{
+    display: grid;
+    grid-template-columns: 10px .8fr 1fr 1fr 1fr .8fr 10px;
+    grid-template-rows: 10px .1fr 1fr 10px;
+
+  }
+  .education-content{
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 3;
+  }
+.education-function{
+    color: #718096;
+}
+ 
+  .education-content h3{
+    margin: 10px 0px;
+  }
+ 
+  .upper-btn{
+    display: flex;
+    gap: 10px;
+    margin: 15px 0px;
+  }
+  .upper-btn button{
+    padding: 2px 10px;
+    border-radius: 8px;
+    border: .1px solid lightgray;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #718096 !important;
+  }
+  .upper-btn button:hover{
+      border: 1px solid gray;
+      color: #654FE8 !important;
+}
+.upper-btn button:hover .search-img{
+    fill: #654FE8 !important;
+}
+  .upper-btn button .search-img{
+    width: 100%;
+    height: 20px;
+  }
+  .filter{
+    border: .1px dashed lightgray !important;
+  }
+  .filter:hover{
+    border: .1px solid lightgray !important;
+    box-shadow: 2px 2px 5px lightgray !important;
+  }
+  .search-img{
+    fill: #B0B4BA;
+  }
+  .lower-btn{
+    display: flex;
+    gap: 10px;
+  }
+  .lower-btn button{
+    padding: 2px 10px;
+    border-radius: 8px;
+    border: .5px solid lightgray;
+    background-color: #ffffff;
+    color: #718096;
+  }
+  .lower-btn button:hover{
+    color: #654FE8;
+  }
+  .lower-btn span{
+    font-size: 14px;
+    border: .1px solid lightgray;
+    padding: 1px 4px;
+    background-color: #ffffff;
+    border-radius: 8px;
+  }
+  .lower-btn span:hover{
+    box-shadow: 2px 2px 5px lightgray !important;
+}
+.lang{
+    border: none !important;
+    background-color: transparent;
+}
+.lang:hover{
+     box-shadow: 2px 2px 5px lightgray !important;
+     background-color: #f2f4f8;
+     border-radius: 0px !important;
+     height: 100% !important;
+ }
+ .clear{
+    border: .1px dashed lightgray !important;
+ }
+ .clear:hover{
+    border:.1px solid lightgray !important;
+    box-shadow: 2px 2px 5px lightgray !important;
+
+ }
+  .edu-card-img1{
+    width: 50px;
+    height: 50px;
+  }
+  .edu-card1{
+    width: 23%;
+    height: auto;
+    text-align: center;
+    margin: 30px 0px;
+    border-radius: 10px;
+    font-size: 14px;
+    background-color: white;
+  }
+  .upper-part1{
+    padding: 15px 5px;
+  }
+  .upper-part1 span{
+    font-size: 12px;
+  }
+  .columns{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+.edu-below-btn1{
+    margin-top: 25px;
+    width: 100%;
+    border-top: .2px solid lightgray;
+    padding: 15px;
+    cursor: pointer;
+    color: gray;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .edu-card1.dashed-border{
+    border:.5px dashed #654FE8
+  }
+  .edu-card1.dashed-border .edu-below-btn1 h4{
+    color: #654FE8
+  }
+.edu-card1:hover
+.edu-below-btn1 {
+    background-color: #654FE8;
+    color: white;
+  }
+  
+.edu-below-btn1:not(:hover) {
+    background-color: white;
+    color: gray;
+  }
+ 

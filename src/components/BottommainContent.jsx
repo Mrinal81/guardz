@@ -2,6 +2,7 @@ import React from 'react'
 import user from "../assets/user.png";
 import globe from "../assets/globe.png";
 import monitor from "../assets/monitor.png";
+import Radar from './Radar';
 
 
 const data=[
@@ -53,10 +54,27 @@ const BottommainContent = () => {
         <div className="bottomcard">
           <div className="bottom-card">
             <div className='issues'>
+              <div className="issue-head">
               <p>Coverage & Issues by Security Control</p>
+              </div>
+              <div className="issues-btns-links">
+                <div className="checklist">
+                <div className="one"></div>
+                <div>Uncovered</div>
+                </div>
+                <div className="checklist">
+                <div className="two"></div><div>Covered</div>
+                </div>
+                <div className="checklist">
+                <div className="three"></div><div>Issues</div>
+                </div>
+              </div>
 
             </div>
-            <div></div>
+            <div className='radar-content'>
+            <Radar />
+            
+            </div>
           </div>
         </div>
         <div className="bottomstatus">

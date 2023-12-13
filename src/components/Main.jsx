@@ -16,7 +16,7 @@ const Main = () => {
       <div className='main'>
         <SidenavBar />
         <Routes>
-          <Route path="/home" element={<MainContent />} />
+          <Route path="/" element={<MainContent />} />
           <Route path="/protection" element={<ProtectionContent />} />
           <Route path="/Issues" element={<IssuesContent />} />
           <Route path="/User" element={<UserContent />} />

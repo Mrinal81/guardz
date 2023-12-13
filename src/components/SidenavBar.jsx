@@ -26,7 +26,7 @@ const SidenavBar = () => {
       <div className="links">
         <ul>
         <li className={activeLink === 'home' ? 'active' : ''}>
-            <Link to="/home" onClick={() => handleLinkClick('home')}>
+            <Link to="/" onClick={() => handleLinkClick('home')}>
               <img src={home} alt="home icon" />
             </Link>
           </li>
