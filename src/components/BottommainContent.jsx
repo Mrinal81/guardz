@@ -73,7 +73,7 @@ const BottommainContent = () => {
 
             </div>
             <div className='radar-content'>
-            <Radar chartId="chartdiv1" />
+            <Radar />
             
             </div>
           </div>

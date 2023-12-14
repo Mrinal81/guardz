@@ -220,14 +220,29 @@ body{
 }
 .radar-content{
     height: 100%;
-    padding-top: 80px;
-}
-.radar-system{
-    text-align: center;
+    padding-top: 100px;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
+.radar-canvas{
+    width: 350px;
+    height: 350px;
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .bottomstatus{
     grid-column-start: 3;
@@ -1228,3 +1243,7 @@ body{
   .clear span{
     background-color: transparent !important;
   }
+
+
+
+  
