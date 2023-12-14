@@ -2,6 +2,10 @@ import React from 'react'
 import user from "../assets/user.png";
 import globe from "../assets/globe.png";
 import monitor from "../assets/monitor.png";
+import folder from "../assets/folder.png";
+import completed from "../assets/completed.png"
+import email from "../assets/email.png";
+
 import BottommainContent from './BottommainContent';
 
 
@@ -17,17 +21,17 @@ const data=[
     name:"Devices",
   },
   {
-    img:user,
+    img:email,
     title:0,
     name:"Mailboxes",
   },
   {
-    img:user,
+    img:completed,
     title:0,
     name:"Browsers",
   },
   {
-    img:user,
+    img:folder,
     title:0,
     name:"Cloud Drives",
   },
@@ -63,17 +67,19 @@ const MainContent = () => {
         </div>
         <div className="status">
           <div className="status-content">
+            <div className="bar">
           <div className="statusbar">
             <span></span>
           </div>
           <div className="insurance">
             <div className="insurance-content">
-            <h2>Cyber Insurance</h2>
+            <h4>Cyber Insurance</h4>
             <a href="#">
             <img src={user} alt="user" />
             </a>
             <button>Request Quote</button>
             </div>
+          </div>
           </div>
           </div>
         </div>
