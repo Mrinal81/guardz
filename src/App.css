@@ -220,7 +220,7 @@ body{
 }
 .radar-content{
     height: 100%;
-    padding-top: 150px;
+    padding-top: 80px;
 }
 .radar-system{
     text-align: center;
@@ -239,8 +239,9 @@ body{
     padding:10px 20px;
 }
 .details p{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
+    color: #2d3748;
 }
 .bottomstatusbar{
     width: 100%;
@@ -248,7 +249,7 @@ body{
     justify-content: center;
     align-items: center;
     padding: 5px 0px;
-    margin: 40px 0px;
+    margin: 20px 0px;
 }
 .bottomstatusbar span{
     background-color: #f6ad55;
@@ -260,6 +261,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 20px;
 }
 .bottom-values{
     border-radius: 5px;
@@ -601,6 +603,9 @@ body{
 .issuesBtn hr{
     height: 20px;
 }
+.sta .close{
+    fill: #718096;
+}
 .issuesBtn button{
     color: #718096;
     background-color: transparent;
@@ -787,8 +792,17 @@ body{
     border-radius: 8px;
     background-color: #ffffff;
     display: flex;
-    gap: 10px;
+    gap: 12px;
+    align-items: center;
     font-size: 12px;
+    color: #4a5568 !important;
+
+}
+.usbt .close{
+    fill: #4a5568;
+}
+.userBtn hr{
+    height: 15px;
 }
 .userBtn button{
     background-color: transparent;
@@ -797,11 +811,15 @@ body{
     padding: 0px;
     margin: 0px;
     font-size: 12px;
+    color: #4a5568 !important;
 }
+
 .userBtn .clear{
     border-radius: 8px !important;
     padding: 2px 8px !important;
     background-color: #ffffff;
+    fill: #4a5568 !important;
+
 }
 .userButtons h2{
     margin-bottom: 5px;
@@ -969,6 +987,12 @@ body{
 }
 .filter{
   border: .1px dashed lightgray !important;
+  display: flex;
+  gap: 10px;
+}
+.filter-img{
+    width: 20px;
+    height: 20px;
 }
 .filter:hover{
   border: .1px solid lightgray !important;
@@ -1105,7 +1129,7 @@ body{
     color: #718096;
   }
   .lower-btn button:hover{
-    color: #654FE8;
+      color: #718096 !important;
   }
   .lower-btn span{
     font-size: 14px;
@@ -1113,6 +1137,8 @@ body{
     padding: 1px 4px;
     background-color: #ffffff;
     border-radius: 8px;
+    display: flex;
+    align-items: center;
   }
   .lower-btn span:hover{
     box-shadow: 2px 2px 5px lightgray !important;
@@ -1129,11 +1155,21 @@ body{
  }
  .clear{
     border: .1px dashed lightgray !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #718096 !important;
+    fill: #4a5568 !important;
+}
+.lan .close{
+    fill: #4a5568;
  }
+ 
  .clear:hover{
     border:.1px solid lightgray !important;
     box-shadow: 2px 2px 5px lightgray !important;
-
+    color: #654FE8 !important;
+    fill: #654FE8 !important;
  }
   .edu-card-img1{
     width: 50px;
@@ -1185,4 +1221,10 @@ body{
     background-color: white;
     color: gray;
   }
- 
+  .close{
+    width: 15px;
+    height: 15px;
+  }
+  .clear span{
+    background-color: transparent !important;
+  }

@@ -1,62 +1,113 @@
-import { useState } from 'react';
+import React, { useEffect } from 'react';
+import * as am5 from '@amcharts/amcharts5';
+import * as am5radar from '@amcharts/amcharts5/radar';
+import * as am5xy from '@amcharts/amcharts5/xy';
 
-const Radar = () => {
-  const calculateCoordinates = (angle) => {
-    const x = 50 + 45 * Math.cos((angle * Math.PI) / 180);
-    const y = 50 + 45 * Math.sin((angle * Math.PI) / 180);
-    return { x, y };
-  };
+const RadarChart = () => {
+  useEffect(() => {
+    am5.ready(() => {
+      // Create root element
+      const root = am5.Root.new("chartdiv");
 
-  const [hoveredSlice, setHoveredSlice] = useState(null);
+      // Set themes
+      root.setThemes([am5.themes.animated.new(root)]);
 
-  const lines = [
-    { angle: 0 },
-    { angle: 45 },
-    { angle: 90 },
-    { angle: 135 },
-    { angle: 180 },
-    { angle: 225 },
-    { angle: 270 },
-    { angle: 315 },
-    { angle: 360 },
-  ];
+      // Create chart
+      const chart = root.container.children.push(am5radar.RadarChart.new(root, {
+        panX: false,
+        panY: false,
+        wheelX: "panX",
+        wheelY: "zoomX"
+      }));
 
-  return (
-    <div className='radar-system'>
-      <svg width='50%' height='50%' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
-        <circle cx='100' cy='100' r='90' fill='transparent' stroke='gray' strokeWidth='.2' stroke-dasharray='5,5' stroke-dashoffset='0' />
+      // Add cursor
+      const cursor = chart.set("cursor", am5radar.RadarCursor.new(root, {
+        behavior: "zoomX"
+      }));
 
-        {lines.map((line, index) => {
-          const nextIndex = (index + 1) % lines.length; // Get the next index to close the loop
-          const { x: startX, y: startY } = calculateCoordinates(line.angle);
-          const { x: endX, y: endY } = calculateCoordinates(lines[nextIndex].angle);
+      cursor.lineY.set("visible", false);
 
-          return (
-            <g key={index}>
-              <line
-                x1='50%'
-                y1='50%'
-                x2={`${startX}%`}
-                y2={`${startY}%`}
-                stroke={hoveredSlice === index ? 'red' : '#ccc'}
-                strokeWidth='.2'
-                onMouseOver={() => setHoveredSlice(index)}
-                onMouseOut={() => setHoveredSlice(null)}
-              />
-              <polygon
-                points={`50%,50% ${startX}%,${startY}% ${endX}%,${endY}%`}
-                fill={hoveredSlice === index ? '#654fe8' : 'transparent'}
-                strokeWidth='.2'
-                stroke='#ccc'
-                onMouseOver={() => setHoveredSlice(index)}
-                onMouseOut={() => setHoveredSlice(null)}
-              />
-            </g>
-          );
-        })}
-      </svg>
-    </div>
-  );
+      // Create axes and their renderers
+      const xRenderer = am5radar.AxisRendererCircular.new(root, {});
+      xRenderer.labels.template.setAll({
+        radius: 10
+      });
+
+      const xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+        maxDeviation: 0,
+        categoryField: "country",
+        renderer: xRenderer,
+        tooltip: am5.Tooltip.new(root, {})
+      }));
+
+      const yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+        renderer: am5radar.AxisRendererRadial.new(root, {})
+      }));
+
+      // Create series
+      const series = chart.series.push(am5radar.RadarLineSeries.new(root, {
+        name: "Series",
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: "litres",
+        categoryXField: "country",
+        tooltip: am5.Tooltip.new(root, {
+          labelText: "{valueY}"
+        })
+      }));
+
+      series.strokes.template.setAll({
+        strokeWidth: 2
+      });
+
+      series.bullets.push(() => {
+        return am5.Bullet.new(root, {
+          sprite: am5.Circle.new(root, {
+            radius: 5,
+            fill: series.get("fill")
+          })
+        });
+      });
+
+      // Set data
+      const data = [{
+        "country": "Lithuania",
+        "litres": 501
+      }, {
+        "country": "Czechia",
+        "litres": 301
+      }, {
+        "country": "Ireland",
+        "litres": 266
+      }, {
+        "country": "Germany",
+        "litres": 165
+      }, {
+        "country": "Australia",
+        "litres": 139
+      }, {
+        "country": "Austria",
+        "litres": 336
+      }, {
+        "country": "UK",
+        "litres": 290
+      }, {
+        "country": "Belgium",
+        "litres": 325
+      }, {
+        "country": "The Netherlands",
+        "litres": 40
+      }];
+      series.data.setAll(data);
+      xAxis.data.setAll(data);
+
+      // Animate chart and series in
+      series.appear(1000);
+      chart.appear(1000, 100);
+    });
+  }, []);
+
+  return <div id="chartdiv" style={{ width: '100%', height: '500px' }} />;
 };
 
-export default Radar;
+export default RadarChart;

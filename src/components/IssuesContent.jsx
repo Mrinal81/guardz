@@ -40,7 +40,7 @@ const IssuesContent = () => {
               <img className='dropdown' src={arrow} alt="dropdown" /></button>
             <hr />
             <button className='filter'>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>filter-variant</title><path d="M6,13H18V11H6M3,6V8H21V6M10,18H14V16H10V18Z" /></svg>
+            <svg className='filter-img' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6 13h12v-2H6M3 6v2h18V6M10 18h4v-2h-4z"/></svg>
               Filter
               </button>
             </div>
@@ -52,9 +52,9 @@ const IssuesContent = () => {
           </div>
         </div>
         <div className="issuesBtn">
-          <span>Issue Status <hr /><button>{totaldata} Issue Statuses</button></span>
-          <span>Issue Serverity <hr /><button>4 Issue Serverities</button></span>
-          <button className='issueclear'>Clear All</button>
+          <span className='sta'>Issue Status <hr /><button>{totaldata} Issue Statuses</button><svg className='close' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>close</title><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg></span>
+          <span className='sta'>Issue Serverity <hr /><button>4 Issue Serverities</button><svg className='close' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>close</title><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg></span>
+          <span className='clear'>Clear All <svg className='close' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>close</title><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg></span>
         </div>
         <div className='issuesCard'>
           <div className="tablecontainer">

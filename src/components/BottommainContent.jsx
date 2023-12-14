@@ -2,7 +2,7 @@ import React from 'react'
 import user from "../assets/user.png";
 import globe from "../assets/globe.png";
 import monitor from "../assets/monitor.png";
-import Radar from './Radar';
+import Radar from './RadarChart';
 import arrow from "../assets/arrow.png"
 
 
@@ -73,7 +73,7 @@ const BottommainContent = () => {
 
             </div>
             <div className='radar-content'>
-            <Radar />
+            <Radar chartId="chartdiv1" />
             
             </div>
           </div>
