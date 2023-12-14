@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import logo from "../assets/guardz-logos.png";
+import logo from "../assets/brand.png";
 import user from "../assets/user.png";
 import monitor from "../assets/monitor.png";
 import shield from "../assets/shield.png";
