@@ -11,7 +11,8 @@ import folder from "../assets/folder.png"
 import email from "../assets/email.png"
 import complete from "../assets/completed.png"
 import education from "../assets/graduation.png"
-
+import phishing from "../assets/phishing-hook.png"
+import RotatingCircle from './RotatingCircle';
 
 
 const data=[
@@ -86,7 +87,7 @@ const BottommainContent = () => {
               <div className='content9'>
                     <p>Phishing Simulation</p>
                     <div className="system-img">
-                    <img className='content-img' src={education} alt="cloud-img" />
+                    <img className='content-img' src={phishing} alt="cloud-img" />
                     </div>
                 </div>
                 <div className='content1'>
@@ -142,6 +143,7 @@ const BottommainContent = () => {
               </div>
              
             <Radar />
+            <RotatingCircle />
               </div>
             
             </div>

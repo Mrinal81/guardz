@@ -269,12 +269,13 @@ body{
 }
 .radar-content{
     height: 100%;
-    padding-top: 100px;
+    padding-top: 30px;
     display: flex;
     justify-content: center;
-    position: absolute;
-    left: 300px;
+    position: relative;
+    left: 150px;
 }
+
 .radar-canvas{
     width: 350px;
     height: 350px;
@@ -364,6 +365,42 @@ body{
     left: 40px;
     padding: 10px;
 }
+
+
+.rotating-text {
+    width: 155px;
+    height: 1px;
+    border: none;
+    border-radius: 80%;
+    position: absolute;
+    top: 276px;
+    left:26.3%;
+    rotate: -90deg;
+    display: none;
+    animation: rotate 8s linear forwards; 
+    transform: translate(-50%, -50%);
+    transform-origin: left;
+    background-color: #654FE8;
+    box-shadow: 5px 5px 10px 5px #654FE8;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .rotating-text.visible {
+    display: block;
+    /* animation: rotate 8s linear forwards; */
+  }
+
+
+
+
 
 
 

@@ -9,6 +9,7 @@ import home from "../assets/home.png";
 import globe from "../assets/globe.png";
 import mark from "../assets/question-mark.png";
 import education from "../assets/graduation.png"
+import error from "../assets/error.png"
 
 const SidenavBar = () => {
   const [activeLink, setActiveLink] = useState('home');
@@ -38,7 +39,7 @@ const SidenavBar = () => {
           </li>
           <li className={activeLink === 'issues' ? 'active' : ''}>
             <Link to="/Issues" onClick={()=> handleLinkClick('issues')}>
-            <img src={shield} alt="Issues"/>
+            <img src={error} alt="Issues"/>
             </Link>
           </li>
           <li className={activeLink === 'user' ? 'active' : ''}>
