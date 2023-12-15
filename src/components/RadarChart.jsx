@@ -15,7 +15,10 @@ const RadarChart = () => {
           const index = context.dataIndex;
           return (index === 1 || index === 2) ? '#654fe8' : 'lightgray';
         },
-        borderWidth: 1,
+        borderWidth: (context) => {
+          const index = context.dataIndex;
+          return (index === 1 || index === 2) ? 2 : 1
+        },
         hoverBorderColor: '#654fe8',
         hoverBorderWidth: 4,
         hoverBackgroundColor: (context) => {
@@ -43,7 +46,6 @@ const RadarChart = () => {
         r: {
           ticks: { display: false },
           suggestedMin: 0,
-        //   suggestedMax: yAxisMax,
         },
       },
       plugins: {
@@ -71,14 +73,14 @@ const RadarChart = () => {
     const handleMouseEnter = (event, element) => {
       element.options.borderWidth = element.options.hoverBorderWidth || 4;
       element.options.backgroundColor = element.options.hoverBackgroundColor || '';
-      element.options.borderDash = [];
+      // element.options.borderDash = [];
       radarChart.update();
     };
 
     const handleMouseLeave = (event, element) => {
       element.options.borderWidth = element.options.originalBorderWidth || 1;
       element.options.backgroundColor = '';
-      element.options.borderDash = [];
+      // element.options.borderDash = [];
       radarChart.update();
     };
 

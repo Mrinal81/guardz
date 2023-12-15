@@ -272,18 +272,98 @@ body{
     padding-top: 100px;
     display: flex;
     justify-content: center;
+    position: absolute;
+    left: 300px;
 }
 .radar-canvas{
     width: 350px;
     height: 350px;
     padding: 10px;
 }
-
-
-
-
-
-
+.system{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-img{
+    width: 30px;
+    height: 30px;
+    border: .1px dashed lightgray;
+    padding: 5px;
+}
+.system-img{
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+}
+.content-img:hover{
+    box-shadow: 2px 2px 5px lightgray;
+}
+.content1{
+    font-size: 10px;
+    color: #718096;
+    position: relative;
+    top: 20px;
+    left: 100px;
+}
+.content2{
+    font-size: 10px;
+    color: #718096;
+    position: relative;
+    top: 110px;
+    left: 130px;
+}
+.content3{
+    font-size: 10px;
+    color: #718096;
+    position: relative;
+    top: 230px;
+    left: 80px;
+}
+.content4{
+    font-size: 10px;
+    color: #718096;
+    position: relative;
+    top: 360px;
+    right: 30px;
+}
+.content5{
+    font-size: 10px;
+    color: #718096;
+    position: relative;
+    top: 410px;
+    right: 220px;
+}
+.content6{
+    font-size: 10px;
+    color: #718096;
+    position: relative;
+    top: 350px;
+    right: 430px;
+}
+.content7{
+    font-size: 10px;
+    color: #718096;
+    position: relative;
+    top: 250px;
+    right: 580px;
+}
+.content8{
+    font-size: 10px;
+    color: #718096;
+    position: relative;
+    top: 110px;
+    right: 650px;
+}
+.content9{
+    font-size: 10px;
+    color: #718096;
+    position: relative;
+    top: 10px;
+    left: 40px;
+    padding: 10px;
+}
 
 
 

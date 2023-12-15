@@ -4,6 +4,14 @@ import globe from "../assets/globe.png";
 import monitor from "../assets/monitor.png";
 import Radar from './RadarChart';
 import arrow from "../assets/arrow.png"
+import cloud from "../assets/cloud.png";
+import boot from "../assets/boot.png"
+import hacker from "../assets/hacker1.png"
+import folder from "../assets/folder.png"
+import email from "../assets/email.png"
+import complete from "../assets/completed.png"
+import education from "../assets/graduation.png"
+
 
 
 const data=[
@@ -73,7 +81,68 @@ const BottommainContent = () => {
 
             </div>
             <div className='radar-content'>
+              <div className="radar-system">
+              <div className='system'>
+              <div className='content9'>
+                    <p>Phishing Simulation</p>
+                    <div className="system-img">
+                    <img className='content-img' src={education} alt="cloud-img" />
+                    </div>
+                </div>
+                <div className='content1'>
+                    <p>Cloud Posture</p>
+                    <div className="system-img">
+                    <img className='content-img' src={cloud} alt="cloud-img" />
+                    </div>
+                </div>
+                <div className='content2'>
+                    <p>External Footprint</p>
+                    <div className="system-img">
+                    <img className='content-img content-style' src={boot} alt="cloud-img" />
+                    </div>
+                </div>
+                <div className='content3'>
+                    <div className="system-img">
+                    <img className='content-img content-style' src={hacker} alt="cloud-img" />
+                    </div>
+                    <p>Dark WEb</p>
+                </div>
+                <div className='content4'>
+                    <div className="system-img">
+                    <img className='content-img' src={folder} alt="cloud-img" />
+                    </div>
+                    <p>Cloud Data</p>
+                </div>
+                <div className='content5'>
+                    <div className="system-img">
+                    <img className='content-img' src={email} alt="cloud-img" />
+                    </div>
+                    <p>Email</p>
+                </div>
+                <div className='content6'>
+                    <div className="system-img">
+                    <img className='content-img' src={monitor} alt="cloud-img" />
+                    </div>
+                    <p>Endpoint Security</p>
+                </div>
+                <div className='content7'>
+                    <div className="system-img">
+                    <img className='content-img' src={complete} alt="cloud-img" />
+                    </div>
+                    <p>Secure Browsing</p>
+                </div>
+                <div className='content8'>
+                    <p>Security Awarness</p>
+                    <div className="system-img">
+                    <img className='content-img' src={education} alt="cloud-img" />
+                    </div>
+                </div>
+               
+
+              </div>
+             
             <Radar />
+              </div>
             
             </div>
           </div>
