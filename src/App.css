@@ -120,6 +120,9 @@ body{
     height: 40px;
     padding: 5px;
 }
+.list-img:hover{
+    background-color: #654FE8;
+}
 
 .status{
     grid-column-start: 3;
@@ -149,7 +152,53 @@ body{
     padding: 8px;
     width: 100%;
     border-radius: 30px;
+    position: relative;
     border:8px solid lightgray;
+}
+.status-para{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 210px;
+    right: 500px;
+    font-size: 12px;
+}
+
+.para-content{
+    position: absolute;
+    top: -30px;
+}
+.para-content .p{
+    font-size: 12px;
+}
+.status-para1{
+    position: absolute;
+    top: 55px;
+    font-size: 12px;
+    right: 300px;
+    display: flex;
+    justify-content: center;
+}
+.para-content1{
+    top: 20px;
+    position: absolute;
+}
+.status-values1{
+    border: none;
+    padding: 2px 20px;
+    border-radius: 8px;
+    background-color: #00e48a;
+    font-size: 18px;
+    font-weight: 600;
+}
+.status-values2{
+    border: none;
+    padding: 2px 20px;
+    border-radius: 8px;
+    background-color: #fc5281;
+    font-size: 18px;
+    font-weight: 600;
+    
 }
 .insurance{
     text-align: center;
