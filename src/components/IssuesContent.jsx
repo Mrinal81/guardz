@@ -1,7 +1,6 @@
 import React from 'react';
-import footprint from "../assets/boot-print.png"
+import boot from "../assets/boot-orange.png"
 import arrow from "../assets/arrow.png"
-
 
 
 const data = [
@@ -74,12 +73,31 @@ const IssuesContent = () => {
             <tbody>
               {data.map((row, rowIndex) => (
                 <tr key={rowIndex}>
-                  <td style={{width:"40px", height:"40px"}}><input type="checkbox" /></td>
-                  {Object.values(row).map((cell, cellIndex) => (
-                    <>
-                    <td key={cellIndex}>{cell}</td>
-                    </>
-                    ))}
+                  <td style={{ width: "40px", height: "40px" }}><input type="checkbox" /></td>
+                  <td key={rowIndex + '-col1'}>
+                    <img src={boot} alt="boot" style={{ marginRight: '10px' }} />
+                    {row.col1}
+                  </td>
+                  {Object.entries(row).map(([key, cell], cellIndex) => {
+                    // Apply styles based on column key
+                    let content;
+                    let styles = {};
+                    if (key === 'col4') {
+                      content = cell;
+                      styles.color = '#f56565';
+                      styles.fontWeight="bold";
+                    } else if (key === 'col5') {
+                      content = <button className='creation' style={{ backgroundColor: '#fff0f4', color:"#fc5281", fontWeight:"bold" }}>{cell}</button>;
+                    } else {
+                      content = cell;
+                    }
+
+                    return (
+                      <td key={cellIndex} style={styles}>
+                        {content}
+                      </td>
+                    );
+                  })}
                 </tr>
               ))}
             </tbody>

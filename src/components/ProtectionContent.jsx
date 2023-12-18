@@ -190,6 +190,19 @@ const ProtectionContent = () => {
     setExpandCard((prevIndex) => (prevIndex === index ? null : index));
 
   }
+  let active=0;
+  let inactive=0;
+  let total=data.length;
+
+
+  data.forEach((item) => {
+    if (item.button.toLowerCase() === 'active') {
+      active++;
+    } else {
+      inactive++;
+    }
+  });
+
   return (
     <div className='protection'>
       <div className="protection-content">
@@ -209,15 +222,15 @@ const ProtectionContent = () => {
                 
               </li>
               <li>
-                <span>9</span>
+                <span>{total}</span>
                 <p>Security Controls</p>
               </li>
               <li>
-                <span>2</span>
+                <span>{active}</span>
                 <p>Active</p>
               </li>
               <li>
-                <span>7</span>
+                <span>{inactive}</span>
                 <p>Inactive</p>
               </li>
             </ul>
@@ -227,10 +240,12 @@ const ProtectionContent = () => {
           <div className="protection-items">
             {data.map((item, index) => (
               <>
+              
               <div className="protection-scroll-list" key={index}>
                 <div className="scroll-data">
                 <div className="scroll-list-left">
-                  <div className="protection-list-img">
+                  <div className={item.button.toLowerCase() === 'active' ? 'active-img' : 'protection-list-img'}>
+                    
                   <img src={item.img} alt="icon" />
                   </div>
                   <div className="middle-scroll-content">
@@ -239,7 +254,7 @@ const ProtectionContent = () => {
                   </div>
                 </div>
                 <div className="scroll-list-right">
-                  <button>{item.button}</button>
+                <button className={item.button.toLowerCase() === 'active' ? 'active-button' : ''}>{item.button}</button>
                   <img src={down} alt="drop" onClick={() => handleToggleExpand(index)} className={`expand-icon ${expandCard === index ? 'expandes' : ''}`} />
                 </div>
                 </div>

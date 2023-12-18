@@ -714,6 +714,22 @@ body{
 .additional-data-title p{
     font-size: 16px;
 }
+
+.active-button{
+    background-color: #C8FFE9 !important;
+    color: #007848 !important;
+    border:none !important;
+    border-radius: 25px !important; 
+}
+.active-img{
+    background-color: #C8FFE9 !important;
+    padding: 10px !important;
+    border-radius: 10px !important;
+}
+.active-img img{
+    width: 20px;
+    height: 20px;
+}
 /* #a0aec0 */
 /* #718096 */
 
@@ -815,7 +831,10 @@ body{
     height: 20px;
     fill: #718096;
 }
-
+.down-arrow img{
+    width: 18px !important;
+    height: 18px !important;
+}
 .headerButtons h2{
     margin-bottom: 10px;
     font-size: 18px;
@@ -911,7 +930,11 @@ body{
     width: 20px;
     height: 20px;
 }
-  
+  .creation{
+    padding:5px 10px !important;
+    border: none !important;
+    border-radius: 20px !important;
+  }
 
 
 .userPage{
@@ -1025,8 +1048,26 @@ body{
   width: auto;
   
 }
+.risk{
+    background-color: #00e48a !important;
+    border: none !important;
+    color: #ffffff;
+    padding: 2px 20px !important;
+    margin: 0px !important;
+    font-weight: bold !important;
+}
 
-
+.first-column{
+    background-color: #718096 !important;
+    text-align: center !important;
+    border-radius: 50%;
+    margin: 0px !important;
+    padding: 5px !important;
+    border: 4px solid #00e48a !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+    font-size: 14px;
+}
 .userCard th{
     text-align: start;
     margin: 20px 20px;
@@ -1055,8 +1096,8 @@ body{
 
 .monitorPage{
     display: grid;
-    grid-template-columns: 10px .06fr 1fr 10px;
-    grid-template-rows: 10px .20fr 1fr 1.13fr 10px;
+    grid-template-columns: 5px .06fr 1fr 5px;
+    grid-template-rows: 5px .20fr 1fr 1.13fr 5px;
 }
 .monitorHeader{
     grid-column-start: 3;

@@ -7,7 +7,7 @@ import monitor from "../assets/monitor.png";
 import shield from "../assets/shield.png";
 import home from "../assets/home.png";
 import globe from "../assets/globe.png";
-import mark from "../assets/question-mark.png";
+import mark from "../assets/question.png";
 import education from "../assets/graduation.png"
 import error from "../assets/error.png"
 
@@ -67,7 +67,7 @@ const SidenavBar = () => {
       <div className="bottomnav">
         <div className="bottom-links">
           <a href="#">Pricing</a>
-          <li>
+          <li style={{textAlign:"center"}}>
             <img src={mark} alt="mark" />
           </li>
         </div>

@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import check from "../assets/checkmark.png";
+import cross from "../assets/cross-mark.png"
 
 
 
@@ -40,7 +41,7 @@ const data = [
     col1: 'deepdefend.tech', 
     col2: 'Domain', 
     col3: 'US United States', 
-    col4: check, 
+    col4: cross, 
     col5: "Active",
     col6: "",
   },

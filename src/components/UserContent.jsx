@@ -1,11 +1,10 @@
 import React from 'react';
-import footprint from "../assets/boot-print.png";
 import cloud from "../assets/cloud.png";
-import hacker from "../assets/hacker.png";
+import hacker from "../assets/hacker2.png";
 import email from "../assets/email.png";
 import folder from "../assets/folder.png";
 import completed from "../assets/completed.png"
-import mark from "../assets/question-mark.png";
+import mark from "../assets/question.png";
 import check from "../assets/checkmark.png";
 
 const data = [
@@ -71,21 +70,26 @@ const totalcount=data.length
                 </tr>
               </thead>
               <tbody>
-                {data.map((row, rowIndex) => (
-                  <tr key={rowIndex}>
-                    {Object.values(row).map((cell, cellIndex) => (
-                      <td key={cellIndex}>
-                        {cell.includes('data:image') ? (
+              {data.map((row, rowIndex) => (
+                <tr key={rowIndex}>
+                  {Object.entries(row).map(([key, cell], cellIndex) => (
+                    <td key={cellIndex}> 
+                   <span className='user-profile'>
+                    <span className={key === 'col1' ? 'first-column' : ''} >
+                      {key === 'col4' ? (
+                        <button className='risk'>{cell}</button>
+                        ) : cell.includes('data:image') ? (
                           <img src={cell} alt={`img-${rowIndex}-${cellIndex}`} />
-                        ) : (
-                          // Otherwise, display the text
-                          cell
-                        )}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
+                          ) : (
+                            cell
+                            )}
+                          </span>
+                            </span>
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
             </table>
           </div>
         </div>
