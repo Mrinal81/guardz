@@ -1,4 +1,4 @@
-import React from 'react';
+import {useState} from 'react';
 import cloud from "../assets/cloud.png";
 import hacker from "../assets/hacker2.png";
 import email from "../assets/email.png";
@@ -6,10 +6,11 @@ import folder from "../assets/folder.png";
 import completed from "../assets/completed.png"
 import mark from "../assets/question.png";
 import check from "../assets/checkmark.png";
-
+import education from "../assets/graduation.png"
+import error from "../assets/error.png"
 const data = [
   { 
-    col1: 'MA', 
+    col1: 'AB', 
     col2: 'abc@gmail.com', 
     col3: 'ABCD ARTED', 
     col4: "Low", 
@@ -22,7 +23,64 @@ const data = [
     col11:'N/A', 
   },
 ];
+
+
+const modalContent=[
+  {
+    para1: 'Risk: Without DMARC policies in place, your organization is vulnerable to email spoofing, phishing attacks, and brand impersonation, which can lead to data breaches and reputational damage.',
+    para2: 'Recommendation: Implement DMARC policies for your domains to authenticate legitimate email sources, prevent unauthorized use of your domains, and receive reports on email activity.',
+    list:[
+      {
+        list1: 'Start with a "none" policy to monitor email traffic without affecting delivery.',
+      },
+      {
+        list1: 'Gradually progress to a "quarantine" or "reject" policy to control unauthenticated emails.',
+      },
+      {
+        list1: 'Ensure SPF and DKIM are correctly configured for your domains.',
+      },
+      {
+        list1: 'Set up a dedicated email address to receive DMARC reports and analyze them regularly.',
+      },
+  ],
+    shortdetail: 'By implementing DMARC policies, your organization can enhance email security, reduce the risk of phishing attacks, and gain insights into email authentication.',
+  },
+  {
+    para1: 'Risk: Without DKIM signing, your organization is vulnerable to email forgery and phishing attacks, which can erode trust and compromise data security.',
+    para2: 'Recommendation: Implement DKIM signing for your email domains to cryptographically verify the authenticity of your outgoing emails, reducing the risk of unauthorized tampering or spoofing',
+    list:[
+      {
+        list1: 'Identify all email domains used for sending messages.',
+      },
+      {
+        list1: 'Generate DKIM keys for each domain and configure them in your DNS records.',
+      },
+      {
+        list1: 'Ensure proper key management to protect DKIM keys from unauthorized access.',
+      },
+      {
+        list1: 'Test and monitor DKIM-signed emails to ensure they are correctly configured and not causing delivery issues.',
+      },
+  ],
+    shortdetail: 'By implementing DKIM, your organization can enhance email security and prevent malicious actors from altering the content of your emails, thereby safeguarding your brand and data integrity.',
+  },
+]
+
+
 const UserContent = () => {
+
+  const [userData, setUserData] = useState(null);
+
+  const openModal = (data, modalIndex) => {
+    const selectedModalContent = modalContent[modalIndex];
+    console.log('Selected Modal Content:', selectedModalContent);
+    setUserData({ ...data, modalContent: selectedModalContent });
+    console.log('Modal Data:', { ...data, modalContent: selectedModalContent });
+  };
+
+  const closeModal = () => {
+    setUserData(null);
+  };
 const totalcount=data.length
   return (
     <div className='userPage'>
@@ -71,7 +129,7 @@ const totalcount=data.length
               </thead>
               <tbody>
               {data.map((row, rowIndex) => (
-                <tr key={rowIndex}>
+                <tr key={rowIndex} className='user-list' onClick={()=> openModal(row, rowIndex)}>
                   {Object.entries(row).map(([key, cell], cellIndex) => (
                     <td key={cellIndex}> 
                    <span className='user-profile'>
@@ -93,6 +151,155 @@ const totalcount=data.length
             </table>
           </div>
         </div>
+        {userData && (
+        <div
+          className={`user-container ${userData ? '' : 'hidden'}`}
+          onClick={closeModal}
+        >
+          <div className={`user ${userData ? '' : 'hidden'}`} onClick={(e) => e.stopPropagation()}>
+            <div className="modal-btn">
+            <button onClick={closeModal}>Close</button>
+            </div>
+            <div className="modal-title-user ">
+            <h3>{userData.col2}</h3>
+            <button className='creation'style={{ backgroundColor: '#00e48a', color:"#ffffff", fontWeight:"bold" }}>{userData.col4}</button>
+            </div>
+            <div className="user-issue-title">
+                <img src={error} alt="error" /> 
+              <h4>Issues</h4>
+            </div>
+
+            <div className="user-nav">
+              <div className='user-nav-links active-user-link'>
+               <p className='user-para'>Issue overview </p>
+               <span>0</span>
+                </div>
+              <div className='user-nav-links'>
+                <p className='user-para'>Remediation options</p>
+                <span>0</span>
+                </div>
+              <div className='user-nav-links'>
+                <p className='user-para'>Fix Issue</p>
+                <span>0</span>
+                </div>
+            </div>
+            <div className="user-details">
+              <div className="user-details-content">
+                <img className='des-img' src={completed} alt="completed" />
+              <p className='user-para-title'>Details</p>
+              </div>
+              <div className="user-content">
+                <div className='user-content-left'>
+                    <div className="email">
+                  <span>Email Address</span>
+                  <p>{userData.col2}</p>
+                    </div>
+                    
+                    <div className="first-name">
+                  <span>First Name</span>
+                  <p>ABCD</p>
+                    </div>
+                    
+                    <div className="activity">
+                    <span>Last Activity Date</span>
+                    <p>N/A</p>
+                   
+                  </div>
+                    <div className="license">
+                    <span>Google Workspace License</span>
+                    <p>Active</p>
+                    </div>
+                    
+                    <div className="apps">
+                    <span>Cloud Apps</span>
+                    <p>N/A</p>
+                    </div>
+                    
+
+                </div>
+                <div className="user-content-right">
+                <div className="groups">
+                      <span>Groups</span>
+                      <p>---</p>
+                    </div>
+                <div className="last-name">
+                      <span>Last Name</span>
+                      <p>ARTED</p>
+                    </div>
+                <div className="organisation">
+                      <span>Organization Name</span>
+                      <p>{userData.col3}</p>
+                    </div>
+                <div className="role">
+                      <span>Google Workspace Role</span>
+                      <p>User</p>
+                    </div>
+                <div className="device">
+                      <span>Devices</span>
+                      <p>N/A</p>
+                    </div>   
+                </div>
+              </div>
+            </div>
+            <div className="user-permissions">
+            <div className="user-permission-content">
+                <img className='des-img' src={completed} alt="completed" />
+              <p className='user-para-title'>Guardz Status & Permissions</p>
+              </div>
+              <div className="permissions-content">
+                <div className="permissions-left">
+                  <span>License</span>
+                  <p>Active</p>
+                </div>
+                <div className="permissions-right">
+                  <span>Role</span>
+                  <p>Admin</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="controls">
+            <div className="user-control-content">
+                <img className='des-img' src={completed} alt="completed" />
+              <p className='user-para-title'>Status of Security Controls</p>
+              </div>
+              <div className="control-all-content">
+
+              <div className="controls-left">
+                <div className="control-posture dd">
+                  <img src={mark} alt="mark" />
+                  <p>Cloud Directory Posture</p>
+                </div>
+                <div className="control-data dd">
+                <img src={mark} alt="mark" />
+                  <p>Cloud Data</p>
+                </div>
+                <div className="control-protection dd">
+                <img src={mark} alt="mark" />
+                  <p>Email Protection</p>
+                </div>
+              </div>
+              <div className="controls-right">
+                <div className="control-awarness dd">
+                <img src={mark} alt="mark" />
+                  <p>Awareness</p>
+                </div>
+                <div className="control-web dd">
+                <img src={check} alt="check" />
+                  <p>Dark Web Monitoring</p>
+                </div>
+                <div className="control-browsing dd">
+                <img src={mark} alt="mark" />
+                  <p>Secure Browsing</p>
+                </div>
+              </div>
+              </div>
+            </div>
+
+           
+          </div>
+        </div>
+      )}
       </div>
     </div>
   );

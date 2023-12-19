@@ -1,8 +1,8 @@
-import React from 'react';
+import {useState} from 'react';
 import boot from "../assets/boot-orange.png"
 import arrow from "../assets/arrow.png"
-
-
+import education from "../assets/graduation.png"
+import error from "../assets/error.png"
 const data = [
   { 
     col1: 'External FootPrint Scan', 
@@ -21,7 +21,63 @@ const data = [
     col6: 'Dec 08, 2023 02:39 pm',
   },
 ];
+
+const modalContent=[
+  {
+    para1: 'Risk: Without DMARC policies in place, your organization is vulnerable to email spoofing, phishing attacks, and brand impersonation, which can lead to data breaches and reputational damage.',
+    para2: 'Recommendation: Implement DMARC policies for your domains to authenticate legitimate email sources, prevent unauthorized use of your domains, and receive reports on email activity.',
+    list:[
+      {
+        list1: 'Start with a "none" policy to monitor email traffic without affecting delivery.',
+      },
+      {
+        list1: 'Gradually progress to a "quarantine" or "reject" policy to control unauthenticated emails.',
+      },
+      {
+        list1: 'Ensure SPF and DKIM are correctly configured for your domains.',
+      },
+      {
+        list1: 'Set up a dedicated email address to receive DMARC reports and analyze them regularly.',
+      },
+  ],
+    shortdetail: 'By implementing DMARC policies, your organization can enhance email security, reduce the risk of phishing attacks, and gain insights into email authentication.',
+  },
+  {
+    para1: 'Risk: Without DKIM signing, your organization is vulnerable to email forgery and phishing attacks, which can erode trust and compromise data security.',
+    para2: 'Recommendation: Implement DKIM signing for your email domains to cryptographically verify the authenticity of your outgoing emails, reducing the risk of unauthorized tampering or spoofing',
+    list:[
+      {
+        list1: 'Identify all email domains used for sending messages.',
+      },
+      {
+        list1: 'Generate DKIM keys for each domain and configure them in your DNS records.',
+      },
+      {
+        list1: 'Ensure proper key management to protect DKIM keys from unauthorized access.',
+      },
+      {
+        list1: 'Test and monitor DKIM-signed emails to ensure they are correctly configured and not causing delivery issues.',
+      },
+  ],
+    shortdetail: 'By implementing DKIM, your organization can enhance email security and prevent malicious actors from altering the content of your emails, thereby safeguarding your brand and data integrity.',
+  },
+]
+
+
+
 const IssuesContent = () => {
+  const [modalData, setModalData] = useState(null);
+
+  const openModal = (data, modalIndex) => {
+    const selectedModalContent = modalContent[modalIndex];
+    console.log('Selected Modal Content:', selectedModalContent);
+    setModalData({ ...data, modalContent: selectedModalContent });
+    console.log('Modal Data:', { ...data, modalContent: selectedModalContent });
+  };
+
+  const closeModal = () => {
+    setModalData(null);
+  };
 
   const totaldata=data.length;
   return (
@@ -72,14 +128,14 @@ const IssuesContent = () => {
             </thead>
             <tbody>
               {data.map((row, rowIndex) => (
-                <tr key={rowIndex}>
+                <tr key={rowIndex} className='issue-body' onClick={()=> openModal(row, rowIndex)}>
                   <td style={{ width: "40px", height: "40px" }}><input type="checkbox" /></td>
                   <td key={rowIndex + '-col1'}>
                     <img src={boot} alt="boot" style={{ marginRight: '10px' }} />
                     {row.col1}
                   </td>
                   {Object.entries(row).map(([key, cell], cellIndex) => {
-                    // Apply styles based on column key
+                   
                     let content;
                     let styles = {};
                     if (key === 'col4') {
@@ -104,7 +160,60 @@ const IssuesContent = () => {
           </table>
           </div>
         </div>
-      </div>
+         {modalData && (
+        <div
+          className={`modal-container ${modalData ? '' : 'hidden'}`}
+          onClick={closeModal}
+        >
+          <div className={`modal ${modalData ? '' : 'hidden'}`} onClick={(e) => e.stopPropagation()}>
+            <div className="modal-btn">
+            <button onClick={closeModal}>Close</button>
+            </div>
+            <div className="modal-title">
+            <h3>{modalData.col3}</h3>
+            <button className='creation'style={{ backgroundColor: '#fff0f4', color:"#fc5281", fontWeight:"bold" }}>{modalData.col5}</button>
+            </div>
+
+            <div className="modal-nav">
+              <div className='modal-nav-links active-modal-link'><span>1</span> Issue overview</div>
+              <div className='modal-nav-links'><span>2</span> Remediation options</div>
+              <div className='modal-nav-links'><span>3</span> Fix Issue</div>
+            </div>
+
+            <div className="modal-description">
+              <p className='modal-para-title'><span><img className='des-img' src={education} alt="education" /></span> Description</p>
+              <div className="modal-des-data">
+              <div className="modal-main-content">
+                  <p className='firstpara'>{modalData.modalContent.para1}</p>
+                  <p className='secpara'>{modalData.modalContent.para2}</p>
+                  <p className='lipara'>Considerations:</p>
+                  <ol>
+                  {modalData.modalContent.list.map((data, index) => (
+                    <li key={index}>{data.list1}</li>
+                    ))}
+                  </ol>
+                  <p className="date">Issue Created at: <span>{modalData.col6}</span></p>
+                </div>    
+                </div>
+                </div>
+                <div className="modal-details">
+              <p className='modal-para-title'><span><img className='des-img' src={error} alt="error" /></span> Details</p>
+              <div className="details-content">
+
+              <ul>
+                <li>deepdefend.tech</li>
+              </ul>
+              <p>Domain: <span>deepdefend.tech</span></p>
+              </div>
+            </div>
+            <div className="modal-down-button">
+              <button className='ignore'>Ignore</button>
+              <button className='remediation'>Remediation</button>
+            </div>
+          </div>
+        </div>
+      )}
+        </div>
     </div>
   );
 }

@@ -22,9 +22,8 @@ const RotatingCircle = () => {
   }, []);
 
   return (
-    <div className={`rotating-text ${isVisible ? 'visible' : ''}`}>
-      
-    </div>
+    <span className={`rotating-text ${isVisible ? 'visible' : ''}`}>
+    </span>
   );
 };
 
