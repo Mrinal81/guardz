@@ -8,6 +8,10 @@ import mark from "../assets/question.png";
 import check from "../assets/checkmark.png";
 import education from "../assets/graduation.png"
 import error from "../assets/error.png"
+import updown from "../assets/up-down.png"
+import down from "../assets/down-arrow.png"
+
+
 const data = [
   { 
     col1: 'AB', 
@@ -113,18 +117,18 @@ const totalcount=data.length
             <table>
               <thead>
                 <tr className='thead'>
-                  <th>Status</th>
-                  <th>Email Address</th>
-                  <th>Full Name</th>
-                  <th>Risk Level</th>
-                  <th><img src={cloud} alt="cloud-img" /></th>
-                  <th><img src={cloud} alt="education-img" /></th>
-                  <th><img src={folder} alt="folder-img" /></th>
-                  <th><img src={hacker} alt="hacker-img" /></th>
-                  <th><img src={email} alt="email-img" /></th>
-                  <th><img src={completed} alt="completed-img" /></th>
-                  <th>Last Activity Date</th>
-                  <th>Groups</th>
+                  <th>Status <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>Email Address <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>Full Name <img className='down-arrow' src={down} alt="up-down arrow" /></th>
+                  <th>Risk Level <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th><img src={cloud} alt="cloud-img" /> <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th><img src={cloud} alt="education-img" /> <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th><img src={folder} alt="folder-img" /> <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th><img src={hacker} alt="hacker-img" /> <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th><img src={email} alt="email-img" /> <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th><img src={completed} alt="completed-img" /> <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>Last Activity Date <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>Groups <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
                 </tr>
               </thead>
               <tbody>
@@ -162,7 +166,7 @@ const totalcount=data.length
             </div>
             <div className="modal-title-user ">
             <h3>{userData.col2}</h3>
-            <button className='creation'style={{ backgroundColor: '#00e48a', color:"#ffffff", fontWeight:"bold" }}>{userData.col4}</button>
+            <button className='creation'style={{ backgroundColor: '#00e48a', color:"#ffffff", fontWeight:"bold" }}>{userData.col4} Risk</button>
             </div>
             <div className="user-issue-title">
                 <img src={error} alt="error" /> 
@@ -186,7 +190,7 @@ const totalcount=data.length
             <div className="user-details">
               <div className="user-details-content">
                 <img className='des-img' src={completed} alt="completed" />
-              <p className='user-para-title'>Details</p>
+              <h4 className='user-para-title'>Details</h4>
               </div>
               <div className="user-content">
                 <div className='user-content-left'>
@@ -244,7 +248,7 @@ const totalcount=data.length
             <div className="user-permissions">
             <div className="user-permission-content">
                 <img className='des-img' src={completed} alt="completed" />
-              <p className='user-para-title'>Guardz Status & Permissions</p>
+              <h4 className='user-para-title'>Guardz Status & Permissions</h4>
               </div>
               <div className="permissions-content">
                 <div className="permissions-left">
@@ -261,7 +265,7 @@ const totalcount=data.length
             <div className="controls">
             <div className="user-control-content">
                 <img className='des-img' src={completed} alt="completed" />
-              <p className='user-para-title'>Status of Security Controls</p>
+              <h4 className='user-para-title'>Status of Security Controls</h4>
               </div>
               <div className="control-all-content">
 

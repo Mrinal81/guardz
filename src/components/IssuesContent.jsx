@@ -3,22 +3,29 @@ import boot from "../assets/boot-orange.png"
 import arrow from "../assets/arrow.png"
 import education from "../assets/graduation.png"
 import error from "../assets/error.png"
+import email from "../assets/email.png"
+import cloud from "../assets/cloud.png"
+import monitor from "../assets/monitor.png"
+import updown from "../assets/up-down.png"
+import down from "../assets/down-arrow.png"
+
+
 const data = [
   { 
-    col1: 'External FootPrint Scan', 
-    col2: 'Email Domain Missing DMARC', 
-    col3: '1 Domain missing a DMARC record', 
-    col4: 'Open', 
-    col5: 'Medium', 
-    col6: 'Dec 08, 2023 02:39 pm', 
+    securityControl: 'External FootPrint Scan', 
+    type: 'Email Domain Missing DMARC', 
+    description: '1 Domain missing a DMARC record', 
+    status: 'Open', 
+    severity: 'Medium', 
+    creationDate: 'Dec 08, 2023 02:39 pm', 
   },
   { 
-    col1: 'External FootPrint Scan', 
-    col2: 'Email Domain Missing DKIM', 
-    col3: '1 Domain missing a DKIM record', 
-    col4: 'Open', 
-    col5: 'Medium', 
-    col6: 'Dec 08, 2023 02:39 pm',
+    securityControl: 'External FootPrint Scan', 
+    type: 'Email Domain Missing DKIM', 
+    description: '1 Domain missing a DKIM record', 
+    status: 'Open', 
+    severity: 'Medium', 
+    creationDate: 'Dec 08, 2023 02:39 pm',
   },
 ];
 
@@ -64,9 +71,48 @@ const modalContent=[
 ]
 
 
+const Dropdown = ({ handleClose }) => {
+  return (
+    <div className="dropdown-content" onClick={handleClose}>
+      {/* Dropdown content goes here */}
+      <div className='drop-content'>
+        <p><svg className='view-drop' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>view-gallery</title><path d="M21 3H2V16H21V3M2 17H6V21H2V17M7 17H11V21H7V17M12 17H16V21H12V17M17 17H21V21H17V17Z" /></svg>Default View</p>
+        <span>(2)</span>
+      </div>
+      <div className='drop-content'>
+        <p>
+          <img src={email} alt="email-auarantine" />Quarantine View</p>
+        <span>(0)</span>
+      </div>
+      <div className='drop-content'>
+        <p><img src={email} alt="email" />Email View</p>
+        <span>(0)</span>
+      </div>
+      <div className='drop-content'>
+        <p><img src={cloud} alt="cloud" />Cloud DLP View</p>
+        <span>(0)</span>
+      </div>
+      <div className='drop-content'>
+        <p><img src={monitor} alt="monitor" />Devices View</p>
+        <span>(0)</span>
+      </div>
+    </div>
+  );
+};
+
 
 const IssuesContent = () => {
   const [modalData, setModalData] = useState(null);
+  const [isDropdownVisible, setDropdownVisible] = useState(false);
+
+
+  const openDropdown = () => {
+    setDropdownVisible(true);
+  };
+
+  const closeDropdown = () => {
+    setDropdownVisible(false);
+  };
 
   const openModal = (data, modalIndex) => {
     const selectedModalContent = modalContent[modalIndex];
@@ -90,7 +136,9 @@ const IssuesContent = () => {
             <button><svg className='search-img' xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
             <path d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"></path>
             </svg></button>
-            <button className='default'>
+            <button className='default' onClick={openDropdown}>
+            {isDropdownVisible && <Dropdown handleClose={closeDropdown} />}
+
               <span><svg className='view' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>view-gallery</title><path d="M21 3H2V16H21V3M2 17H6V21H2V17M7 17H11V21H7V17M12 17H16V21H12V17M17 17H21V21H17V17Z" /></svg>Default View</span>
               <img className='dropdown' src={arrow} alt="dropdown" /></button>
             <hr />
@@ -117,45 +165,31 @@ const IssuesContent = () => {
             <thead>
               <tr>
                 <th style={{width:"40px", height:"40px"}}><input type='checkbox' /></th>
-                <th>Security Control</th>
-                <th>Type</th>
-                <th>Title</th>
-                <th>Status</th>
-                <th>Severity</th>
-                <th>Creation Date</th>
-                <th>Completed</th>
+                <th>Security Control <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                <th>Type <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                <th>Title <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                <th>Status <img className='down-arrow' src={down} alt="up-down arrow" /></th>
+                <th>Severity <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                <th>Creation Date <img className='down-arrow' src={down} alt="up-down arrow" /></th>
+                <th>Completed <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
               </tr>
             </thead>
             <tbody>
               {data.map((row, rowIndex) => (
-                <tr key={rowIndex} className='issue-body' onClick={()=> openModal(row, rowIndex)}>
+                <tr key={rowIndex} className='issue-body' onClick={() => openModal(row, rowIndex)}>
                   <td style={{ width: "40px", height: "40px" }}><input type="checkbox" /></td>
-                  <td key={rowIndex + '-col1'}>
+                  <td>
                     <img src={boot} alt="boot" style={{ marginRight: '10px' }} />
-                    {row.col1}
+                    {row.securityControl}
                   </td>
-                  {Object.entries(row).map(([key, cell], cellIndex) => {
-                   
-                    let content;
-                    let styles = {};
-                    if (key === 'col4') {
-                      content = cell;
-                      styles.color = '#f56565';
-                      styles.fontWeight="bold";
-                    } else if (key === 'col5') {
-                      content = <button className='creation' style={{ backgroundColor: '#fff0f4', color:"#fc5281", fontWeight:"bold" }}>{cell}</button>;
-                    } else {
-                      content = cell;
-                    }
-
-                    return (
-                      <td key={cellIndex} style={styles}>
-                        {content}
-                      </td>
-                    );
-                  })}
+                  <td>{row.type}</td>
+                  <td>{row.description}</td>
+                  <td style={{ color: '#f56565', fontWeight: 'bold' }}>{row.status}</td>
+                  <td>{<button className='creation' style={{ backgroundColor: '#fff0f4', color: "#fc5281", fontWeight: "bold" }}>{row.severity}</button>}</td>
+                  <td>{row.creationDate}</td>
                 </tr>
-              ))}
+                  ))}
+
             </tbody>
           </table>
           </div>
@@ -170,8 +204,8 @@ const IssuesContent = () => {
             <button onClick={closeModal}>Close</button>
             </div>
             <div className="modal-title">
-            <h3>{modalData.col3}</h3>
-            <button className='creation'style={{ backgroundColor: '#fff0f4', color:"#fc5281", fontWeight:"bold" }}>{modalData.col5}</button>
+            <h3>{modalData.description}</h3>
+            <button className='creation'style={{ backgroundColor: '#fff0f4', color:"#fc5281", fontWeight:"bold" }}>{modalData.severity}</button>
             </div>
 
             <div className="modal-nav">

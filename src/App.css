@@ -9,6 +9,8 @@
 body{
     background-color: #f2f4f8;
 }
+
+
 .main{
     display: grid;
     /* grid-template-columns: .6fr 9fr; */
@@ -65,6 +67,36 @@ body{
 .active{
     border-color: blue;
 }
+.tooltip {
+    position: relative;
+    display:block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    white-space: nowrap;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    margin-left: 40px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border: 1px solid #ddd; 
+    transform: translateX(2%);
+    font-size:12px;
+  }
+ 
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+  
 .main-content{
     display: grid;
     padding: 0px 0px 0px 60px;
@@ -123,6 +155,34 @@ body{
 .list-img:hover{
     background-color: #654FE8;
 }
+.main-tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .main-tooltip .main-tooltiptext {
+    visibility: hidden;
+    white-space: nowrap;
+    background-color: white;
+    color: #333;
+    box-shadow:8px 8px 10px whitesmoke;
+    font-size:12px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    /* left: 50%; */
+    margin-left: -150px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .main-tooltip:hover .main-tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
 
 .status{
     grid-column-start: 3;
@@ -455,9 +515,17 @@ body{
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+    cursor:pointer;
 }
 .bottom-values{
     border-radius: 5px;
+    cursor:pointer;
+    width:100%;
+    margin:0px 5px;
+    padding:2px 5px;
+}
+.bottom-values:hover{
+    box-shadow:2px 2px 10px lightgray;
 }
 .datas{
     margin: 0px 10px;
@@ -493,8 +561,11 @@ body{
     background-color: white;
     border:.1px solid lightgray;
     padding: 2px 10px;
+    color:#718096;
     margin: 0px 5px;
     border-radius: 10px;
+    cursor:pointer;
+    font-size:12px;
 }
 .insights-content button:hover{
     box-shadow: 2px 2px 5px lightgray;
@@ -510,6 +581,108 @@ body{
     fill: #dd6b20;
     display: flex;
     align-items: center;
+}
+.securitybtn{
+    display:flex;
+    align-items:center;
+    gap:10px
+}
+.ignored{
+    color:black !important;
+}
+.securitybtn img{
+    width:20px;
+    height:20px;
+}
+.togglebtn{
+    display: flex;
+  align-items: center;
+  /* margin-top: 20px; */
+  gap:10px;
+}
+.togglebtn span{
+    font-size:12px;
+    color:#718096;
+    
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 18px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: '';
+    height: 15px;
+    width: 15px;
+    left: 1.5px;
+    top:1px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #654fe8;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #654fe8;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(15px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+
+
+
+
+
+.tipsbtn{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:lightgray;
+    border:.1px solid #d3d3d3 !important;
+    cursor:not-allowed !important;
+}
+.tipsbtn img{
+    width:20px;
+    height:20px;
 }
 .scroll-content{
     margin: 30px 0px;
@@ -861,11 +1034,12 @@ body{
     table-layout: auto;
     background-color: white;
     border-spacing: 0;
-   
+    overflow-x: scroll;
 }
 .issuesPage thead{
     color: #718096;
 }
+
 .issuesCard th,
 .issuesCard td {
   text-align: start;
@@ -942,7 +1116,6 @@ body{
     cursor: pointer;
 }
 .tablecontainer{
-    overflow-x: scroll; 
     margin-top: 15px;
 } 
 
@@ -954,6 +1127,57 @@ body{
     padding:5px 10px !important;
     border: none !important;
     border-radius: 20px !important;
+  }
+  .dropdown-content{
+    position:absolute;
+    background-color:#ffffff;
+    min-width:200px;
+    height:auto;
+    box-shadow:8px 8px 20px lightgray;
+    border-radius:10px;
+    top:115px;
+    border-radius:10pxl
+  }
+  .drop-content{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 10px;
+    align-items:center;
+    cursor:pointer;
+  }
+  .drop-content p{
+    display:flex;
+    align-items:center;
+    gap:5px;
+  }
+  .drop-content img{
+    width:20px;
+    height:20px;
+  }
+  .view-drop{
+    width:20px;
+    height:15px;
+    rotate:-180deg;
+    fill:#718096;
+  }
+  .default:hover .drop-content{
+    color:#718096 !important; 
+  }
+  .drop-content:hover{
+    background-color:#e2e8f0;
+  }
+  .multiple-arrow{
+    width:15px !important;
+    height:15px !important;
+    margin:0px 5px;
+    display:none;
+  }
+  .issuesCard th:hover .multiple-arrow{
+    display:inline-block;
+  }
+  .down-arrow{
+    width:15px !important;
+    height:15px !important;
   }
 /* Add these styles to your existing CSS */
 .modal-container {
@@ -1213,7 +1437,6 @@ body{
 .userCard table{
     border: .1px solid lightgray;
     border-radius: 10px;
-    /* padding: 10px; */
     width: 100%;
     font-size: 14px;
     table-layout: auto;
@@ -1224,10 +1447,19 @@ body{
 .userCard th,
 .userCard td {
   text-align: start;
-  padding: 15px 10px; 
+  padding: 20px; 
   width: auto;
   
 }
+.userCard table thead{
+    font-size:12px;
+}
+.userCard .multiple-arrow{
+    width:10px !important;
+    height:10px !important;
+    display:none;
+}
+
 .risk{
     background-color: #00e48a !important;
     border: none !important;
@@ -1249,18 +1481,24 @@ body{
     font-size: 14px;
 }
 .userCard th{
-    text-align: start;
-    margin: 20px 20px;
     border-bottom: .1px solid lightgray;
+    width: auto !important;
+
 }
-.userCard thead{
+.usertablecontainer thead{
     color: #718096;
 }
+.usertablecontainer th:hover .multiple-arrow {
+    display: inline-block;
+  }
+
 .userCard thead tr{
     border-bottom: .1px solid lightgray ;
 }
 .userCard tr{
     text-align: start;
+    padding: 20px; 
+    width: auto;
 }
 .usertablecontainer{
     margin-top: 20px;
@@ -1313,6 +1551,9 @@ body{
     width:20px;
     height:20px;
 }
+.usertablecontainer th:hover .multiple-arrow{
+    display:inline-block;
+  }
 .user-nav{
     display:flex;
     gap:40px;
@@ -1333,7 +1574,7 @@ body{
 
 .user-content{
     display:flex;
-    margin:15px 10px;
+    margin:10px;
     align-items:center;
     gap:150px;
     font-size:12px;
@@ -1358,7 +1599,7 @@ body{
     display:flex;
     align-items:center;
     gap:290px;
-    margin:15px 10px;
+    margin:15px 12px;
     font-size:12px;
 
 }
@@ -1447,7 +1688,7 @@ body{
     border-radius: 8px;
     padding: 8px;
     width: 100%;
-    font-size: 14px;
+    font-size: 12px;
     table-layout: auto;
     color: #718096;
 }
@@ -1458,8 +1699,13 @@ body{
   width: auto;
   
 }
-
-
+.monitortablecontainer .multiple-arrow{
+    width:10px !important;
+    height:10px !important;
+}
+.monitortablecontainer th:hover .multiple-arrow {
+    display: inline-block;
+  }
 .monitorCard th{
     text-align: start;
     margin: 20px 20px;
@@ -1555,7 +1801,13 @@ body{
 .globeCard th{
     color: #718096;
 }
-
+.globetablecontainer .multiple-arrow{
+    width:10px !important;
+    height:10px !important;
+}
+.globetablecontainer th:hover .multiple-arrow {
+    display: inline-block;
+  }
 .globeCard th,
 .globeCard td {
     text-align: start;

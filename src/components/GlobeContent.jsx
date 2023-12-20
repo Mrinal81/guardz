@@ -1,7 +1,8 @@
 import {useState} from 'react';
 import check from "../assets/checkmark.png";
 import cross from "../assets/cross-mark.png"
-
+import updown from "../assets/up-down.png"
+import down from "../assets/down-arrow.png"
 
 
 const data = [
@@ -92,11 +93,11 @@ const GlobeContent = () => {
             <table>
               <thead>
                 <tr className='thead'>
-                  <th>Asset</th>
-                  <th>Type</th>
-                  <th>Geo-location</th>
-                  <th>Issues</th>
-                  <th>Status</th>
+                  <th>Asset <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>Type <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>Geo-location <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>Issues <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>Status <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
                   <th></th>
                 </tr>
               </thead>

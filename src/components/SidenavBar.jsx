@@ -27,39 +27,46 @@ const SidenavBar = () => {
       </div>
       <div className="links">
         <ul>
-        <li className={activeLink === 'home' ? 'active' : ''}>
+        <li className={`tooltip ${activeLink === 'home' ? 'active' : ''}`}>
             <Link to="/" onClick={() => handleLinkClick('home')}>
               <img src={home} alt="home icon" />
+              <span className="tooltiptext">Home</span>
             </Link>
           </li>
-          <li className={activeLink === 'protection' ? 'active' : ''}>
-            <Link to="/protection" onClick={() => handleLinkClick('protection')}>
+          <li className={`tooltip ${activeLink === 'protection' ? 'active' : ''}`}>
+            <Link to="/protection" onClick={() => handleLinkClick('protection')} >
               <img src={shield} alt="protection" />
+              <span className="tooltiptext">Security Controls</span>
             </Link>
           </li>
-          <li className={activeLink === 'issues' ? 'active' : ''}>
-            <Link to="/Issues" onClick={()=> handleLinkClick('issues')}>
+          <li className={`tooltip ${activeLink === 'issues' ? 'active' : ''}`}>
+            <Link to="/Issues" onClick={()=> handleLinkClick('issues')} >
             <img src={error} alt="Issues"/>
+            <span className="tooltiptext">Issues</span>
             </Link>
           </li>
-          <li className={activeLink === 'user' ? 'active' : ''}>
+          <li className={`tooltip ${activeLink === 'user' ? 'active' : ''}`}>
             <Link to="/user" onClick={()=> handleLinkClick('user')}>
             <img src={user} alt="user"/>
+            <span className="tooltiptext">Users</span>
             </Link>
           </li>
-          <li className={activeLink === 'monitor' ? 'active' : ''}>
-            <Link to="/Monitor" onClick={()=> handleLinkClick('monitor')}>
+          <li className={`tooltip ${activeLink === 'monitor' ? 'active' : ''}`}>
+            <Link to="/Monitor" onClick={()=> handleLinkClick('monitor')} >
             <img src={monitor} alt="monitor"/>
+            <span className="tooltiptext">Devices</span>
             </Link>
           </li>
-          <li className={activeLink === 'globe' ? 'active' : ''}>
-            <Link to="/Globe" onClick={()=> handleLinkClick('globe')}>
+          <li className={`tooltip ${activeLink === 'globe' ? 'active' : ''}`}>
+            <Link to="/Globe" onClick={()=> handleLinkClick('globe')} >
             <img src={globe} alt="globe"/>
+            <span className="tooltiptext">Internet Assets</span>
             </Link>
           </li>
-          <li className={activeLink === 'education' ? 'active' : ''}>
-            <Link to="/Education" onClick={()=> handleLinkClick('education')}>
+          <li className={`tooltip ${activeLink === 'education' ? 'active' : ''}`}>
+            <Link to="/Education" onClick={()=> handleLinkClick('education')} >
             <img src={education} alt="education"/>
+            <span className="tooltiptext">Awarness</span>
             </Link>
           </li>
         </ul>

@@ -14,31 +14,37 @@ const data=[
     img:user,
     title:1,
     name:"Users",
+    tooltip: 'Guardz is actively monitoring users from Google or Microsoft cloud directories.',
   },
   {
     img:monitor,
     title:0,
     name:"Devices",
+    tooltip: 'Guardz is actively securing endpoints (Windows & Mac) via device agents.',
   },
   {
     img:email,
     title:0,
     name:"Mailboxes",
+    tooltip: 'Guardz is actively monitoring all email Gmail or Exchange.',
   },
   {
     img:completed,
     title:0,
     name:"Browsers",
+    tooltip: 'Guardz is actively monitoring web activity via browser extensions.',
   },
   {
     img:folder,
     title:0,
     name:"Cloud Drives",
+    tooltip: 'Guardz is actively monitoring file sharing from personal & shared cloud drives (OneDrive, Sharepoint, Google Drive, etc).',
   },
   {
     img:globe,
     title:6,
     name:"Internet Assets",
+    tooltip: 'Guardz is actively monitoring domains and IPs via external footprint scans.',
   },
 ]
 
@@ -52,7 +58,8 @@ const MainContent = () => {
               return (
                 <li key={index}>
                   <div className="list">
-                    <div className="list-img">
+                    <div className="list-img main-tooltip">
+                    <span className="main-tooltiptext">{item.tooltip}</span>
                     <img src={item.img} alt={item.name}/>
                     </div>
                     <div className="list-details">

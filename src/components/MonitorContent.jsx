@@ -1,4 +1,6 @@
 import React from 'react';
+import updown from "../assets/up-down.png"
+import down from "../assets/down-arrow.png"
 
 const MonitorContent = () => {
 
@@ -19,17 +21,17 @@ const MonitorContent = () => {
             <table>
               <thead>
                 <tr className='thead'>
-                  <th>Hostname</th>
-                  <th>Status</th>
-                  <th>Serial Number</th>
-                  <th>Users</th>
-                  <th>OS</th>
-                  <th>OS Version</th>
-                  <th>Agent Version</th>
-                  <th>Antivirus</th>
-                  <th>First Seen</th>
-                  <th>Last Seen</th>
-                  <th>Last Activity Date</th>
+                  <th>Hostname <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>Status <img className='down-arrow' src={down} alt="up-down arrow" /></th>
+                  <th>Serial Number <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>Users <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>OS <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>OS Version <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>Agent Version <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>Antivirus <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>First Seen <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>Last Seen <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>Last Activity Date <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
                 </tr>
               </thead>
             </table>
