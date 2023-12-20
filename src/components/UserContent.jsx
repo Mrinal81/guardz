@@ -117,18 +117,171 @@ const totalcount=data.length
             <table>
               <thead>
                 <tr className='thead'>
-                  <th>Status <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th>Email Address <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th>Full Name <img className='down-arrow' src={down} alt="up-down arrow" /></th>
-                  <th>Risk Level <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th><img src={cloud} alt="cloud-img" /> <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th><img src={cloud} alt="education-img" /> <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th><img src={folder} alt="folder-img" /> <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th><img src={hacker} alt="hacker-img" /> <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th><img src={email} alt="email-img" /> <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th><img src={completed} alt="completed-img" /> <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th>Last Activity Date <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th>Groups <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Status
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+                    <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Email Address 
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                  <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Full Name 
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                  <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Risk Level 
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                    <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    <img src={cloud} alt="cloud-img" /> 
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                    <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    <img src={cloud} alt="cloud-img" /> 
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                    <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    <img src={folder} alt="cloud-img" /> 
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                    <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    <img src={hacker} alt="cloud-img" /> 
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                    <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    <img src={email} alt="cloud-img" /> 
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+
+                    <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    <img src={completed} alt="cloud-img" /> 
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+                    <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Last Activity Date
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+                    <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Groups
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
                 </tr>
               </thead>
               <tbody>

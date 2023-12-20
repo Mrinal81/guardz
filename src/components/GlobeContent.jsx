@@ -93,11 +93,68 @@ const GlobeContent = () => {
             <table>
               <thead>
                 <tr className='thead'>
-                  <th>Asset <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th>Type <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th>Geo-location <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th>Issues <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th>Status <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>
+                  <div className="th-data">
+
+
+                    <div>
+                      Asset 
+                    </div>
+                    <div className='th-img'>
+                      <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                  </div>
+                    </div>
+                      </th>
+                  <th>
+                  <div className="th-data">
+
+
+                    <div>
+                      Type 
+                      </div>
+                      <div className='th-img'>
+                        <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                        </div>
+                  </div>
+                        </th>
+                  <th>
+                  <div className="th-data">
+
+
+                    <div>
+                    Geo-location 
+                    </div>
+                      <div className='th-img'>
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                      </div>
+                  </div>
+                    </th>
+                  <th>
+                  <div className="th-data">
+
+
+                    <div>
+                    Issues 
+                    </div>
+                    <div className='th-img'>
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                  </div>
+                    </th>
+                  <th>
+                    <div className="th-data">
+
+                    <div>
+                    Status 
+                    </div>
+                    <div className='th-img'>
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
                   <th></th>
                 </tr>
               </thead>

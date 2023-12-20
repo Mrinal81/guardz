@@ -1798,8 +1798,21 @@ body{
     border-collapse: separate;
     border-spacing: 0;
 }
+
 .globeCard th{
     color: #718096;
+}
+.th-data{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    width:100%;
+}
+.th-img{
+    width:20px;
+}
+.globeCard .th-img{
+    width:50px;
 }
 .globetablecontainer .multiple-arrow{
     width:10px !important;

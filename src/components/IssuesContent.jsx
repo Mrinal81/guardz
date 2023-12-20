@@ -165,13 +165,102 @@ const IssuesContent = () => {
             <thead>
               <tr>
                 <th style={{width:"40px", height:"40px"}}><input type='checkbox' /></th>
-                <th>Security Control <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                <th>Type <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                <th>Title <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                <th>Status <img className='down-arrow' src={down} alt="up-down arrow" /></th>
-                <th>Severity <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                <th>Creation Date <img className='down-arrow' src={down} alt="up-down arrow" /></th>
-                <th>Completed <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Security Control
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+                    <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Type 
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                  <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Time 
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                  <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Status 
+                    </div>
+                    <div className="th-img">
+
+                    <img className='down-arrow' src={down} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                    <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Serverity 
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                    <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Creation Date
+                    </div>
+                    <div className="th-img">
+
+                    <img className='down-arrow' src={down} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                    <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Completed
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
               </tr>
             </thead>
             <tbody>

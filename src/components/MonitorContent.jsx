@@ -21,17 +21,142 @@ const MonitorContent = () => {
             <table>
               <thead>
                 <tr className='thead'>
-                  <th>Hostname <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th>Status <img className='down-arrow' src={down} alt="up-down arrow" /></th>
-                  <th>Serial Number <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th>Users <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th>OS <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th>OS Version <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th>Agent Version <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th>Antivirus <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th>First Seen <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th>Last Seen <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
-                  <th>Last Activity Date <img className='multiple-arrow' src={updown} alt="up-down arrow" /></th>
+                  <th>
+                    <div className="th-data">
+
+                    <div>
+                    Hostname 
+                    </div>
+                    <div className="th-img">
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                  <th>
+                    <div className="th-data">
+
+                    <div>
+                      Status 
+                      </div>
+                      <div className="th-img">
+                      <img className='down-arrow' src={down} alt="up-down arrow" />
+                      </div>
+                    </div>
+                      </th>
+
+
+                  <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Serial Number 
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                  <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Users 
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                  <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    OS 
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                    <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Agent Version
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                    <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Antivirus
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                    <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    First Seen 
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
+                    <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Last Seen 
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+                    <th>
+                    <div className="th-data">
+
+                    <div>
+
+                    Last Activity Date
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
                 </tr>
               </thead>
             </table>
