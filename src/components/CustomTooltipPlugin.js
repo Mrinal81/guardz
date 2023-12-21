@@ -24,5 +24,10 @@ export const customTooltipPlugin = {
             const label = context.label || '';
             return label;
         },
+        afterLabel: function (context) {
+            // Add additional information after the label if needed
+            const additionalInfo = 'Additional Info: ' + context.value;
+            return additionalInfo;
+        },
     },
 };

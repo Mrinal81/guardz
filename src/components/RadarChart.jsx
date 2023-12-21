@@ -1,17 +1,11 @@
 // RadarChart.js
 import React, { useEffect, useRef } from 'react';
-import {Chart} from 'chart.js/auto';
-import {customTooltipPlugin} from  './CustomTooltipPlugin';
-
-
-
+import { Chart } from 'chart.js/auto';
 
 const RadarChart = () => {
   const chartRef = useRef(null);
 
   useEffect(() => {
-
-
     const data = {
       labels: ['Cloud Posture', 'External Footprint', 'Dark Web', 'Cloud Data', 'Email Protection', 'Endpoint Security', 'Secure Browsing', 'Security Awareness', 'Phishing Simulation'],
       datasets: [{
@@ -54,27 +48,12 @@ const RadarChart = () => {
         },
       },
       plugins: {
-        customTooltip: {
-          enabled: true,
-          backgroundColor: 'rgba(255, 255, 255, 0.8)',
-          titleColor: '#333',
-          bodyColor: '#555',
-          borderColor: '#ddd',
-          borderWidth: 1,
-          cornerRadius: 5,
-          padding: 10,
-          callbacks: {
-            title: () => '',
-            label: (tooltipItem) => {
-              const label = data.labels[tooltipItem.dataIndex];
-              const value = tooltipItem.formattedValue || data.datasets[0].data[tooltipItem.dataIndex];
-              return `${label}: ${value}`;
-            },
-          },
-        },
         legend: {
-          display:false,
-        }
+          display: false,
+        },
+        tooltip: {
+          enabled: false,
+        },
       },
       elements: {
         line: {
@@ -87,9 +66,37 @@ const RadarChart = () => {
       animation: {
         animateRotate: false,
       },
-     
+      onHover: (event, chartElement) => {
+        const tooltip = document.getElementById('custom-tooltip');
+        if (chartElement[0]) {
+          const sliceIndex = chartElement[0].index;
+          const label = data.labels[sliceIndex];
+          const value = data.datasets[0].data[sliceIndex];
+
+          const btnsLinks = document.querySelector('.issues-btns-links');
+
+          if (sliceIndex === 1 || sliceIndex === 2) {
+            tooltip.innerHTML = `
+              <div>${label}</div>
+              <div>${btnsLinks.children[1].innerHTML}</div>
+              <div>${btnsLinks.children[2].innerHTML}</div>
+            `;
+          } else {
+            tooltip.innerHTML = `
+              <div>${label}</div>
+              <div>${btnsLinks.children[0].innerHTML}</div>
+              <div>${btnsLinks.children[2].innerHTML}</div>
+            `;
+          }
+
+          tooltip.style.display = 'block';
+        } else {
+          tooltip.style.display = 'none';
+        }
+      },
     };
-    if (chartRef.current.chart) {
+
+    if (chartRef.current?.chart) {
       chartRef.current.chart.destroy();
     }
 
@@ -97,39 +104,12 @@ const RadarChart = () => {
       type: 'polarArea',
       data: data,
       options: options,
-      plugins: [customTooltipPlugin],
     });
-  
+
     chartRef.current.chart = radarChart;
-  
-
-    const slices = radarChart.getDatasetMeta(0).data;
-
-    const handleMouseEnter = (event, element) => {
-      element.options.borderWidth = element.options.hoverBorderWidth || 4;
-      element.options.backgroundColor = element.options.hoverBackgroundColor || '';
-      // element.options.borderDash = [];
-      radarChart.update();
-    };
-
-    const handleMouseLeave = (event, element) => {
-      element.options.borderWidth = element.options.originalBorderWidth || 1;
-      element.options.backgroundColor = '';
-      // element.options.borderDash = [];
-      radarChart.update();
-    };
-
-    slices.forEach((slice) => {
-      slice.options.originalBorderWidth = slice.options.borderWidth;
-      slice.options.originalBoxShadow = slice.options.boxShadow || 'none';
-      slice.$listeners = {
-        mouseenter: (event) => handleMouseEnter(event, slice),
-        mouseleave: (event) => handleMouseLeave(event, slice),
-      };
-    });
 
     return () => {
-      if (chartRef.current.chart) {
+      if (chartRef.current?.chart) {
         chartRef.current.chart.destroy();
       }
     };
@@ -138,6 +118,23 @@ const RadarChart = () => {
   return (
     <div className='radar-canvas'>
       <canvas ref={chartRef} />
+      <div
+        id="custom-tooltip"
+        style={{
+          display: 'none',
+          position: 'absolute',
+          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+          padding: '10px',
+          fontSize: '10px',
+          top: '180px',
+          left: '120px',
+          borderRadius: '5px',
+          boxShadow: '0 0 5px rgba(0, 0, 0, 0.1)',
+          width: '130px',
+          height: '80px',
+          
+        }}
+      ></div>
     </div>
   );
 };
