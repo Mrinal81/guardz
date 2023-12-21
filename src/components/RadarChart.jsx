@@ -1,6 +1,10 @@
 // RadarChart.js
 import React, { useEffect, useRef } from 'react';
-import Chart from 'chart.js/auto';
+import {Chart} from 'chart.js/auto';
+import {customTooltipPlugin} from  './CustomTooltipPlugin';
+
+
+
 
 const RadarChart = () => {
   const chartRef = useRef(null);
@@ -9,6 +13,7 @@ const RadarChart = () => {
 
 
     const data = {
+      labels: ['Cloud Posture', 'External Footprint', 'Dark Web', 'Cloud Data', 'Email Protection', 'Endpoint Security', 'Secure Browsing', 'Security Awareness', 'Phishing Simulation'],
       datasets: [{
         data: Array(9).fill(1),
         borderColor: (context) => {
@@ -49,24 +54,54 @@ const RadarChart = () => {
         },
       },
       plugins: {
-        legend: { display: false },
-        tooltip: { enabled: false },
+        customTooltip: {
+          enabled: true,
+          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+          titleColor: '#333',
+          bodyColor: '#555',
+          borderColor: '#ddd',
+          borderWidth: 1,
+          cornerRadius: 5,
+          padding: 10,
+          callbacks: {
+            title: () => '',
+            label: (tooltipItem) => {
+              const label = data.labels[tooltipItem.dataIndex];
+              const value = tooltipItem.formattedValue || data.datasets[0].data[tooltipItem.dataIndex];
+              return `${label}: ${value}`;
+            },
+          },
+        },
+        legend: {
+          display:false,
+        }
       },
       elements: {
-        arc: {
-          backgroundColor: 'transparent',
+        line: {
+          borderWidth: 2,
+          borderColor: '#654fe8',
+          backgroundColor: 'rgba(101, 79, 232, 0.2)',
+          fill: true,
         },
       },
       animation: {
         animateRotate: false,
       },
+     
     };
+    if (chartRef.current.chart) {
+      chartRef.current.chart.destroy();
+    }
 
     const radarChart = new Chart(chartRef.current, {
       type: 'polarArea',
       data: data,
       options: options,
+      plugins: [customTooltipPlugin],
     });
+  
+    chartRef.current.chart = radarChart;
+  
 
     const slices = radarChart.getDatasetMeta(0).data;
 
@@ -94,7 +129,9 @@ const RadarChart = () => {
     });
 
     return () => {
-      radarChart.destroy();
+      if (chartRef.current.chart) {
+        chartRef.current.chart.destroy();
+      }
     };
   }, []);
 
