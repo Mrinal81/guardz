@@ -335,12 +335,57 @@ body{
     position: relative;
     left: 150px;
 }
-
+.bubble {
+    width: 10px;
+    height: 10px;
+    background-color: #654fe8;
+    border-radius: 50%;
+    position: absolute;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .bubble.visible {
+    opacity: 1;
+  }
 .radar-canvas{
     width: 350px;
     height: 350px;
     padding: 10px;
 }
+.blink {
+    width: 0px;
+    height: 0px;
+    /* display: inline-block; */
+    position: absolute;
+  }
+  .blink::after,
+  .blink::before {
+    content: '';  
+    /* box-sizing: border-box; */
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #654fe8;
+    position: absolute;
+    left: 220px;
+    top: -210px;
+    animation: animloader 2.5s linear infinite;
+  }
+  .blink::after {
+    animation-delay: 0s;
+  }
+  
+  @keyframes animloader {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+
 .system{
     position: relative;
     display: flex;

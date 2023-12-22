@@ -1,6 +1,7 @@
 // RadarChart.js
 import React, { useEffect, useRef } from 'react';
 import { Chart } from 'chart.js/auto';
+import RotatingCircle from './RotatingCircle';
 
 const RadarChart = () => {
   const chartRef = useRef(null);
@@ -77,15 +78,15 @@ const RadarChart = () => {
 
           if (sliceIndex === 1 || sliceIndex === 2) {
             tooltip.innerHTML = `
-              <div>${label}</div>
-              <div>${btnsLinks.children[1].innerHTML}</div>
-              <div>${btnsLinks.children[2].innerHTML}</div>
+              <div style="padding: 2px 0px;">${label}</div>
+              <div style="display: flex; gap: 5px; padding: 2px 0px;">${btnsLinks.children[1].innerHTML}</div>
+              <div style="display: flex; gap: 5px; padding: 2px 0px;">${btnsLinks.children[2].innerHTML}</div>
             `;
           } else {
             tooltip.innerHTML = `
-              <div>${label}</div>
-              <div>${btnsLinks.children[0].innerHTML}</div>
-              <div>${btnsLinks.children[2].innerHTML}</div>
+              <div  style="padding: 2px 0px;">${label}</div>
+              <div style="display: flex; gap: 5px; padding: 2px 0px;">${btnsLinks.children[0].innerHTML}</div>
+              <div style="display: flex; gap: 5px; padding: 2px 0px;">${btnsLinks.children[2].innerHTML}</div>
             `;
           }
 
@@ -135,6 +136,7 @@ const RadarChart = () => {
           
         }}
       ></div>
+      <RotatingCircle />
     </div>
   );
 };

@@ -104,6 +104,8 @@ const Dropdown = ({ handleClose }) => {
 const IssuesContent = () => {
   const [modalData, setModalData] = useState(null);
   const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const [showBubble, setShowBubble] = useState(null);
+
 
 
   const openDropdown = () => {

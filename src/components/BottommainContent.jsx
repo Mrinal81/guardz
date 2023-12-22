@@ -1,4 +1,4 @@
-import React from 'react'
+import {useState} from 'react'
 import user from "../assets/user.png";
 import globe from "../assets/globe.png";
 import monitor from "../assets/monitor.png";
@@ -41,7 +41,7 @@ const data=[
   ]
 const cardData=[
   {
-    title:"No Email Security & Mmissing Records",
+    title:"No Email Security & Missing Records",
     description:"DNS records issue identified and email security not enabled.",
   },
   {
@@ -60,11 +60,16 @@ const cardData=[
 ]
 
 const BottommainContent = () => {
-  const [isIgnored, setIsIgnored] = React.useState(false);
+  const [isIgnored, setIsIgnored] = useState(false);
+
+
 
   const handleToggle = () => {
     setIsIgnored(!isIgnored);
   };
+
+
+
 
 
   return (
@@ -152,7 +157,8 @@ const BottommainContent = () => {
               </div>
              
             <Radar />
-            <RotatingCircle />
+            {/* <RotatingCircle /> */}
+            
               </div>
             
             </div>
@@ -254,4 +260,4 @@ const BottommainContent = () => {
   )
 }
 
-export default BottommainContent
+export default BottommainContent;

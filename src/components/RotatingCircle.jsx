@@ -1,4 +1,6 @@
+// RotatingCircle.js
 import React, { useEffect, useState } from 'react';
+import Bubble from './BubbleSvg';
 
 const RotatingCircle = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,10 +22,14 @@ const RotatingCircle = () => {
       clearInterval(rotateInterval);
     };
   }, []);
+  
 
   return (
+    <>
     <span className={`rotating-text ${isVisible ? 'visible' : ''}`}>
     </span>
+      {isVisible && <Bubble />}
+    </>
   );
 };
 
