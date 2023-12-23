@@ -156,7 +156,6 @@ body{
     background-color: #654FE8;
 }
 .main-tooltip {
-    /* position: relative; */
     display: inline-block;
   }
   
@@ -215,6 +214,7 @@ body{
     border-radius: 30px;
     position: absolute;
     border:8px solid lightgray;
+    z-index: 0;
 }
 .status-para{
     position: absolute;
@@ -257,8 +257,36 @@ body{
     border-radius: 8px;
     background-color: #fc5281;
     font-size: 18px;
-    font-weight: 600;
-    
+    font-weight: 600; 
+}
+.line1{
+    width:40px;
+    border-radius:10px;
+    border: 2px dashed black;
+    rotate:90deg;
+    position:absolute;
+    top:70px;
+    left:40px;
+    z-index: 1;
+}
+.line{
+     width:3px;
+    height:30px;
+    background-color:black;
+    border-radius:10px;
+    position:absolute;
+    bottom:60px;
+    left:38px;
+    z-index: 1;
+}
+.circle-line{
+    background-color:black;
+    border-radius:50%;
+    width:10px;
+    height:10px;
+    position:absolute;
+    bottom:50px;
+    left:35px;
 }
 .insurance{
     text-align: center;

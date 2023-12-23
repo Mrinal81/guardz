@@ -25,6 +25,7 @@ const data = [
     col9: mark, 
     col10:mark,
     col11:'N/A', 
+    col12:'',
   },
 ];
 
@@ -269,6 +270,7 @@ const totalcount=data.length
                     </div>
                     </div>
                     </th>
+
                     <th>
                     <div className="th-data">
 

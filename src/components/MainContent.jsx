@@ -79,10 +79,13 @@ const MainContent = () => {
             <div className="status-para1">
               <p>Insurance Threshold</p>
               <span className='status-values1'>80</span>
+              <div className="line1"></div>
               
             </div>
             <span className='spanbar'></span>
           <div className="status-para">
+          <div className="line"></div>
+              <div className="circle-line"></div>
             <span className='status-values2'>25</span>
             <p className='p'>Your Business</p>
           </div>
