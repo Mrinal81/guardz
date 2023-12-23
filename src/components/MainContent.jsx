@@ -78,15 +78,12 @@ const MainContent = () => {
           <div className="statusbar">
             <div className="status-para1">
               <p>Insurance Threshold</p>
-              <div className="para-content1">
-              <p className='status-values1'>80</p>
-              </div>
+              <span className='status-values1'>80</span>
+              
             </div>
-            <span></span>
+            <span className='spanbar'></span>
           <div className="status-para">
-            <div className="para-content">
-            <p className='status-values2'>25</p>
-            </div>
+            <span className='status-values2'>25</span>
             <p className='p'>Your Business</p>
           </div>
           </div>
@@ -96,12 +93,13 @@ const MainContent = () => {
             <a href="#">
             <img src={user} alt="user" />
             </a>
-            <button>Request Quote</button>
+            <button className='req'>Request Quote</button>
             </div>
           </div>
           </div>
           </div>
         </div>
+
       </div>
       <BottommainContent />
     </div>

@@ -96,57 +96,56 @@ const BottommainContent = () => {
 
             </div>
             <div className='radar-content'>
-              <div className="radar-system">
-              <div className='system'>
-              <div className='content9'>
+              {/* <div className='system'>
+              <div className='content9 content'>
                     <p>Phishing Simulation</p>
                     <div className="system-img">
                     <img className='content-img' src={phishing} alt="cloud-img" />
                     </div>
                 </div>
-                <div className='content1'>
+                <div className='content1 content'>
                     <p>Cloud Posture</p>
                     <div className="system-img">
                     <img className='content-img' src={cloud} alt="cloud-img" />
                     </div>
                 </div>
-                <div className='content2'>
+                <div className='content2 content'>
                     <p>External Footprint</p>
                     <div className="system-img">
                     <img className='content-img content-style' src={boot} alt="cloud-img" />
                     </div>
                 </div>
-                <div className='content3'>
+                <div className='content3 content'>
                     <div className="system-img">
                     <img className='content-img content-style' src={hacker} alt="cloud-img" />
                     </div>
                     <p>Dark WEb</p>
                 </div>
-                <div className='content4'>
+                <div className='content4 content'>
                     <div className="system-img">
                     <img className='content-img' src={folder} alt="cloud-img" />
                     </div>
                     <p>Cloud Data</p>
                 </div>
-                <div className='content5'>
+                <div className='content5 content'>
                     <div className="system-img">
                     <img className='content-img' src={email} alt="cloud-img" />
                     </div>
                     <p>Email</p>
                 </div>
-                <div className='content6'>
+                <div className='content6 content'>
                     <div className="system-img">
                     <img className='content-img' src={monitor} alt="cloud-img" />
                     </div>
                     <p>Endpoint Security</p>
                 </div>
-                <div className='content7'>
+                <div className='content7 content'>
                     <div className="system-img">
                     <img className='content-img' src={complete} alt="cloud-img" />
                     </div>
                     <p>Secure Browsing</p>
                 </div>
-                <div className='content8'>
+                <div className='content8 content'>
                     <p>Security Awarness</p>
                     <div className="system-img">
                     <img className='content-img' src={education} alt="cloud-img" />
@@ -154,7 +153,8 @@ const BottommainContent = () => {
                 </div>
                
 
-              </div>
+              </div> */}
+              <div className="radar-system">
              
             <Radar />
             {/* <RotatingCircle /> */}

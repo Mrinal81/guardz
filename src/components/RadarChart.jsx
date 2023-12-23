@@ -1,6 +1,20 @@
 // RadarChart.js
 import React, { useEffect, useRef } from 'react';
 import { Chart } from 'chart.js/auto';
+import globe from "../assets/globe.png";
+import monitor from "../assets/monitor.png";
+import Radar from './RadarChart';
+import arrow from "../assets/arrow.png"
+import cloud from "../assets/cloud.png";
+import boot from "../assets/boot.png"
+import hacker from "../assets/hacker1.png"
+import folder from "../assets/folder.png"
+import email from "../assets/email.png"
+import complete from "../assets/completed.png"
+import education from "../assets/graduation.png"
+import phishing from "../assets/phishing-hook.png"
+import error from "../assets/serror.png";
+import task from "../assets/task.png";
 import RotatingCircle from './RotatingCircle';
 
 const RadarChart = () => {
@@ -137,6 +151,82 @@ const RadarChart = () => {
         }}
       ></div>
       <RotatingCircle />
+        <div className='system'>
+              <div className='content9 content'>
+                    <div className="system-img">
+                    <p>Phishing Simulation</p>
+                    <div className="sys-img">
+                    <img className='content-img' src={phishing} alt="cloud-img" />
+                    </div>
+                    </div>
+                </div>
+                <div className='content1 content'>
+                    <div className="system-img">
+                    <p>Cloud Posture</p>
+                    <div className="sys-img">
+                    <img className='content-img' src={cloud} alt="cloud-img" />
+                    </div>
+                    </div>
+                </div>
+                <div className='content2 content'>
+                    <div className="system-img">
+                    <p>External Footprint</p>
+                    <div className="sys-img">
+                    <img className='content-img content-style' src={boot} alt="cloud-img" />
+                    </div>
+                    </div>
+                </div>
+                <div className='content3 content'>
+                    <div className="system-img">
+                    <div className="sys-img">
+                    <img className='content-img content-style' src={hacker} alt="cloud-img" />
+                    </div>
+                    <p>Dark WEb</p>
+                    </div>
+                </div>
+                <div className='content4 content'>
+                    <div className="system-img">
+                    <div className="sys-img">
+                    <img className='content-img' src={folder} alt="cloud-img" />
+                    </div>
+                    <p>Cloud Data</p>
+                    </div>
+                </div>
+                <div className='content5 content'>
+                    <div className="system-img">
+                    <div className="sys-img">
+                    <img className='content-img' src={email} alt="cloud-img" />
+                    </div>
+                    <p>Email</p>
+                    </div>
+                </div>
+                <div className='content6 content'>
+                    <div className="system-img">
+                    <div className="sys-img">
+                    <img className='content-img' src={monitor} alt="cloud-img" />
+                    </div>
+                    <p>Endpoint Security</p>
+                    </div>
+                </div>
+                <div className='content7 content'>
+                    <div className="system-img">
+                    <div className="sys-img">
+                    <img className='content-img' src={complete} alt="cloud-img" />
+                    </div>
+                    <p>Secure Browsing</p>
+                    </div>
+                </div>
+                <div className='content8 content'>
+                    <div className="system-img">
+                    <p>Security Awarness</p>
+                    <div className="sys-img">
+                    <img className='content-img' src={education} alt="cloud-img" />
+                    </div>
+                    </div>
+                </div>
+               
+
+              </div> 
     </div>
   );
 };
