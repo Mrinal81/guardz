@@ -77,7 +77,7 @@ const MainContent = () => {
             <div className="bar">
           <div className="statusbar">
             <div className="status-para1">
-              <p>Insurance Threshold</p>
+              <p className='p'>Insurance Threshold</p>
               <span className='status-values1'>80</span>
               <div className="line1"></div>
               
@@ -90,6 +90,8 @@ const MainContent = () => {
             <p className='p'>Your Business</p>
           </div>
           </div>
+
+
           <div className="insurance">
             <div className="insurance-content">
             <h4>Cyber Insurance</h4>
