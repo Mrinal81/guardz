@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useRef} from 'react';
 import cloud from "../assets/cloud.png";
 import hacker from "../assets/hacker2.png";
 import email from "../assets/email.png";
@@ -10,6 +10,7 @@ import education from "../assets/graduation.png"
 import error from "../assets/error.png"
 import updown from "../assets/up-down.png"
 import down from "../assets/down-arrow.png"
+import monitor from "../assets/monitor.png"
 
 
 const data = [
@@ -26,6 +27,7 @@ const data = [
     col10:mark,
     col11:'N/A', 
     col12:'',
+    col13:'',
   },
 ];
 
@@ -99,10 +101,61 @@ const UserFilter = ({userFilterClose}) => {
 }
 
 
+const CustomTooltip = ({ text, columnName }) => {
+  return (
+    <div className={`custom-tooltip tooltip-${columnName}`}>
+      <p>{text}</p>
+    </div>
+  );
+};
+
+const ColumnTooltip = ({ columnName, text, position }) => {
+  return (
+    <div
+      className={`column-tooltip tooltip-${columnName}`}
+      style={{ top: position.top, left: position.left }}
+    >
+      <p>{text}</p>
+    </div>
+  );
+};
+const calculatePosition = (columnName) => {
+  const rect = document.querySelector(`.th-data.${columnName}`).getBoundingClientRect();
+  const containerRect = document.querySelector('.user-header').getBoundingClientRect();
+
+  const tooltipTop = rect.top - containerRect.top + window.scrollY - 30;
+  const tooltipLeft = rect.left - containerRect.left + window.scrollX;
+
+  return { top: tooltipTop, left: tooltipLeft };
+};
+
 const UserContent = () => {
+  const columnRef = useRef();
+
 
   const [userData, setUserData] = useState(null);
   const [isUserFilterVisible, setUserFilterVisible]= useState(false);
+  const [hoveredColumn, setHoveredColumn] = useState(null);
+  const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
+
+
+  const handleColumnHover = (column, event) => {
+    setHoveredColumn(column);
+  
+    // Set the reference to the hovered column
+    columnRef.current = event.currentTarget;
+  
+    const tooltipTop = columnRef.current.getBoundingClientRect().top - 30;
+    const tooltipLeft = columnRef.current.getBoundingClientRect().left;
+  
+    setTooltipPosition({ top: tooltipTop, left: tooltipLeft });
+  
+    console.log(`Hovered column: ${column}`);
+  };
+  
+  
+  
+
 
   const openModal = (data, modalIndex) => {
     const selectedModalContent = modalContent[modalIndex];
@@ -225,9 +278,11 @@ const totalcount=data.length;
                     <th>
                     <div className="th-data">
 
-                    <div>
+                    <div className='th-imgs'>
 
                     <img src={cloud} alt="cloud-img" /> 
+                    <CustomTooltip text="Cloud Directory Posture" />
+
                     </div>
                     <div className="th-img">
 
@@ -239,9 +294,10 @@ const totalcount=data.length;
                     <th>
                     <div className="th-data">
 
-                    <div>
+                    <div className='th-imgs'>
 
-                    <img src={cloud} alt="cloud-img" /> 
+                    <img src={education} alt="cloud-img" />
+                    <CustomTooltip text="Awareness" /> 
                     </div>
                     <div className="th-img">
 
@@ -253,9 +309,10 @@ const totalcount=data.length;
                     <th>
                     <div className="th-data">
 
-                    <div>
+                    <div className='th-imgs'>
 
                     <img src={folder} alt="cloud-img" /> 
+                    <CustomTooltip text="Cloud Data" />
                     </div>
                     <div className="th-img">
 
@@ -267,9 +324,10 @@ const totalcount=data.length;
                     <th>
                     <div className="th-data">
 
-                    <div>
+                    <div className='th-imgs'>
 
                     <img src={hacker} alt="cloud-img" /> 
+                    <CustomTooltip text="Dark Web Monitoring" />
                     </div>
                     <div className="th-img">
 
@@ -281,9 +339,10 @@ const totalcount=data.length;
                     <th>
                     <div className="th-data">
 
-                    <div>
+                    <div className='th-imgs'>
 
                     <img src={email} alt="cloud-img" /> 
+                    <CustomTooltip text="Email Protection" />
                     </div>
                     <div className="th-img">
 
@@ -296,9 +355,10 @@ const totalcount=data.length;
                     <th>
                     <div className="th-data">
 
-                    <div>
+                    <div className='th-imgs'>
 
                     <img src={completed} alt="cloud-img" /> 
+                    <CustomTooltip text="Secure Browsing" />
                     </div>
                     <div className="th-img">
 
@@ -306,6 +366,22 @@ const totalcount=data.length;
                     </div>
                     </div>
                     </th>
+
+                    <th>
+                    <div className="th-data">
+
+                    <div className='th-imgs'>
+
+                    <img src={monitor} alt="cloud-img" /> 
+                    <CustomTooltip text="Endpoint Protection" />
+                    </div>
+                    <div className="th-img">
+
+                    <img className='multiple-arrow' src={updown} alt="up-down arrow" />
+                    </div>
+                    </div>
+                    </th>
+
                     <th>
                     <div className="th-data">
 
@@ -336,26 +412,42 @@ const totalcount=data.length;
                 </tr>
               </thead>
               <tbody>
-              {data.map((row, rowIndex) => (
-                <tr key={rowIndex} className='user-list' onClick={()=> openModal(row, rowIndex)}>
-                  {Object.entries(row).map(([key, cell], cellIndex) => (
-                    <td key={cellIndex}> 
-                   <span className='user-profile'>
-                    <span className={key === 'col1' ? 'first-column' : ''} >
-                      {key === 'col4' ? (
-                        <button className='risk'>{cell}</button>
-                        ) : cell.includes('data:image') ? (
+        {data.map((row, rowIndex) => (
+          <tr key={rowIndex} className='user-list' onClick={() => openModal(row, rowIndex)}>
+            {Object.entries(row).map(([key, cell], cellIndex) => (
+              <td
+                key={cellIndex}
+                onMouseEnter={(e) => handleColumnHover(key, e)}
+                onMouseLeave={() => setHoveredColumn(null)}
+              >
+                <span className='user-profile'>
+                  <span className={key === 'col1' ? 'first-column' : ''}>
+                    {key === 'col4' ? (
+                      <button className='risk'>{cell}</button>
+                    ) : (
+                      <span>
+                        {cell.includes('data:image') ? (
                           <img src={cell} alt={`img-${rowIndex}-${cellIndex}`} />
-                          ) : (
-                            cell
-                            )}
-                          </span>
-                            </span>
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
+                        ) : (
+                          cell
+                        )}
+                      </span>
+                    )}
+                  </span>
+                </span>
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+      {hoveredColumn && ['col2', 'col5', 'col6', 'col7', 'col9', 'col10'].includes(hoveredColumn) && (
+  <ColumnTooltip
+    text={hoveredColumn === 'col2' ? data[0][hoveredColumn] : 'Inactive Control'}
+    position={tooltipPosition}
+  />
+)}
+
+
             </table>
           </div>
         </div>
