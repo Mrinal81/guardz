@@ -101,10 +101,42 @@ const Dropdown = ({ handleClose }) => {
 };
 
 
+const FilterDropdown = ({filterClose}) => {
+  return(
+    <div className='filter-dropdown-content' onClick={filterClose}>
+      <div className="filter-drop-content">
+        <input type="text" placeholder="Filter" />
+      </div>
+      <div className="drop-contents-filter">
+        <p>Issue Status</p>
+        <span>4 Items</span>
+      </div>
+      <div className="drop-contents-filter">
+        <p>Security Controls</p>
+        <span>8 Items</span>
+      </div>
+      <div className="drop-contents-filter">
+        <p>Issue Type</p>
+        <span>103 Items</span>
+      </div>
+      <div className="drop-contents-filter">
+        <p>Issue Serverity</p>
+        <span>5 Items</span>
+      </div>
+      <div className="drop-contents-filter">
+        <p>Users</p>
+        <span>4 Items</span>
+      </div>
+    </div>
+  )
+
+}
+
 const IssuesContent = () => {
   const [modalData, setModalData] = useState(null);
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [showBubble, setShowBubble] = useState(null);
+  const [isFilterDropdownVisible, setIsFilterDropdownVisible]= useState(false);
 
 
 
@@ -115,6 +147,13 @@ const IssuesContent = () => {
   const closeDropdown = () => {
     setDropdownVisible(false);
   };
+
+  const openFilterDropdown = () => {
+    setIsFilterDropdownVisible(true);
+  }
+  const closeFilterDropdown = () => {
+    setIsFilterDropdownVisible(false);
+  }
 
   const openModal = (data, modalIndex) => {
     const selectedModalContent = modalContent[modalIndex];
@@ -144,7 +183,8 @@ const IssuesContent = () => {
               <span><svg className='view' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>view-gallery</title><path d="M21 3H2V16H21V3M2 17H6V21H2V17M7 17H11V21H7V17M12 17H16V21H12V17M17 17H21V21H17V17Z" /></svg>Default View</span>
               <img className='dropdown' src={arrow} alt="dropdown" /></button>
             <hr />
-            <button className='filter'>
+            <button className='filter' onClick= {isFilterDropdownVisible ? closeFilterDropdown : openFilterDropdown}>
+              {isFilterDropdownVisible && <FilterDropdown filterClose={closeFilterDropdown} />}
             <svg className='filter-img' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6 13h12v-2H6M3 6v2h18V6M10 18h4v-2h-4z"/></svg>
               Filter
               </button>

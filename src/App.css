@@ -1216,7 +1216,6 @@ body{
     box-shadow:8px 8px 20px lightgray;
     border-radius:10px;
     top:115px;
-    border-radius:10pxl
   }
   .drop-content{
     display:flex;
@@ -1245,6 +1244,40 @@ body{
   }
   .drop-content:hover{
     background-color:#e2e8f0;
+  }
+  .filter-dropdown-content{
+    position: absolute;
+    background-color:#ffffff;
+    min-width:250px;
+    height:auto;
+    box-shadow:8px 8px 20px lightgray;
+    border-radius:10px;
+    top:81px;
+    left:365px;
+  }
+  .filter-drop-content{
+    padding:10px;
+    align-items:center;
+    cursor:pointer;
+  }
+  .filter-drop-content input{
+    border:none;
+    border-bottom:.5px solid lightgray;
+    width:100%;
+    outline:none;
+  }
+  .drop-contents-filter{
+    display:flex;
+    justify-content:space-between;
+    padding: 10px;
+    align-items:center;
+    cursor:pointer;
+  }
+  .drop-contents-filter:hover{
+    background-color:#e2e8f0;
+}
+.filter:hover .drop-contents-filter{
+      color:#718096 !important;
   }
   .multiple-arrow{
     width:15px !important;
@@ -1514,6 +1547,40 @@ body{
     font-size: 18px;
     color: #4a5568;
 }
+.user-drop-contents-filter{
+    display:flex;
+    justify-content:space-between;
+    padding: 10px;
+    align-items:center;
+    cursor:pointer;
+}
+.user-filter-dropdown-content{
+    position: absolute;
+    background-color:#ffffff;
+    min-width:250px;
+    height:auto;
+    box-shadow:8px 8px 20px lightgray;
+    border-radius:10px;
+    top:72px;
+    left:147px;
+}
+.user-filter-drop-content{
+    padding:10px;
+    align-items:center;
+    cursor:pointer;
+  }
+  .user-filter-drop-content input{
+    border:none;
+    border-bottom:.5px solid lightgray;
+    width:100%;
+    outline:none;
+  }
+  .user-drop-contents-filter:hover{
+    background-color:#e2e8f0;
+}
+.filter:hover .user-drop-contents-filter{
+      color:#718096 !important;
+  }
 .userCard table{
     border: .1px solid lightgray;
     border-radius: 10px;
@@ -1762,6 +1829,41 @@ body{
     font-size: 18px;
     color: #4a5568;
 }
+.monitor-drop-contents-filter{
+    display:flex;
+    justify-content:space-between;
+    padding: 10px;
+    align-items:center;
+    cursor:pointer;
+}
+.monitor-filter-dropdown-content{
+    position: absolute;
+    background-color:#ffffff;
+    min-width:250px;
+    height:auto;
+    box-shadow:8px 8px 20px lightgray;
+    border-radius:10px;
+    top:94px;
+    left:142px;
+}
+.monitor-filter-drop-content{
+    padding:10px;
+    align-items:center;
+    cursor:pointer;
+  }
+  .monitor-filter-drop-content input{
+    border:none;
+    border-bottom:.5px solid lightgray;
+    width:100%;
+    outline:none;
+  }
+  .monitor-drop-contents-filter:hover{
+    background-color:#e2e8f0;
+}
+.filter:hover .monitor-drop-contents-filter{
+      color:#718096 !important;
+  }
+
 .monitorCard table{
     background-color: white;
     border: .1px solid lightgray;
@@ -1866,6 +1968,44 @@ body{
     font-size: 18px;
     color: #4a5568;
 }
+.globe-drop-contents-filter{
+    display:flex;
+    justify-content:space-between;
+    padding: 10px;
+    align-items:center;
+    cursor:pointer;
+}
+.globe-filter-dropdown-content{
+    position: absolute;
+    background-color:#ffffff;
+    min-width:250px;
+    height:auto;
+    box-shadow:8px 8px 20px lightgray;
+    border-radius:10px;
+    top:74px;
+    left:145px;
+}
+.globe-filter-drop-content{
+    padding:10px;
+    align-items:center;
+    cursor:pointer;
+  }
+  .globe-filter-drop-content input{
+    border:none;
+    border-bottom:.5px solid lightgray;
+    width:100%;
+    outline:none;
+  }
+  .globe-drop-contents-filter:hover{
+    background-color:#e2e8f0;
+}
+.filter:hover .globe-drop-contents-filter{
+      color:#718096 !important;
+  }
+
+
+
+
 .globeCard table{
     border: .1px solid lightgray;
     border-radius: 8px;
@@ -1991,6 +2131,43 @@ body{
     border: .1px solid lightgray !important;
     box-shadow: 2px 2px 5px lightgray !important;
   }
+  .education-drop-contents-filter{
+    display:flex;
+    justify-content:space-between;
+    padding: 10px;
+    align-items:center;
+    cursor:pointer;
+}
+.education-filter-dropdown-content{
+    position: absolute;
+    background-color:#ffffff;
+    min-width:250px;
+    height:auto;
+    box-shadow:8px 8px 20px lightgray;
+    border-radius:10px;
+    top:88px;
+    left:322px;
+}
+.education-filter-drop-content{
+    padding:10px;
+    align-items:center;
+    cursor:pointer;
+  }
+  .education-filter-drop-content input{
+    border:none;
+    border-bottom:.5px solid lightgray;
+    width:100%;
+    outline:none;
+  }
+  .education-drop-contents-filter:hover{
+    background-color:#e2e8f0;
+}
+.filter:hover .education-drop-contents-filter{
+      color:#718096 !important;
+  }
+
+
+
   .search-img{
     fill: #B0B4BA;
   }
