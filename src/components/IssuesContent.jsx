@@ -18,6 +18,7 @@ const data = [
     status: 'Open', 
     severity: 'Medium', 
     creationDate: 'Dec 08, 2023 02:39 pm', 
+    completionDate: '',
   },
   { 
     securityControl: 'External FootPrint Scan', 
@@ -26,6 +27,7 @@ const data = [
     status: 'Open', 
     severity: 'Medium', 
     creationDate: 'Dec 08, 2023 02:39 pm',
+    completionDate: '',
   },
 ];
 
@@ -318,6 +320,7 @@ const IssuesContent = () => {
                   <td style={{ color: '#f56565', fontWeight: 'bold' }}>{row.status}</td>
                   <td>{<button className='creation' style={{ backgroundColor: '#fff0f4', color: "#fc5281", fontWeight: "bold" }}>{row.severity}</button>}</td>
                   <td>{row.creationDate}</td>
+                  <td>{row.completionDate}</td>
                 </tr>
                   ))}
 
