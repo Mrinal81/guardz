@@ -295,7 +295,7 @@ const IssuesContent = () => {
 
                     <div>
 
-                    Completed
+                    Completion Date
                     </div>
                     <div className="th-img">
 
